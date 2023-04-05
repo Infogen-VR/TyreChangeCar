@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e112411728b12f44b963207433a19ecb, type: 3}
+  m_Name: SoundDataTireChange
+  m_EditorClassIdentifier: 
+  _sfxConfirm: {fileID: 8300000, guid: 592a99c73d2cb3d46a8963286ec0a0c6, type: 3}
+  _intro: {fileID: 8300000, guid: 92cf64d68d73c1a4093b7a69ad5c7022, type: 3}
+  _grabCarJack: {fileID: 8300000, guid: ada8ccb481bb6084c961c1faaf797b05, type: 3}
+  _placeitUnderCar: {fileID: 8300000, guid: 13fbed50f64165149925c46efa7bb90a, type: 3}
+  _pushJackLever: {fileID: 8300000, guid: 87327b2de844c8841b164be9445068df, type: 3}
+  _grabWrenchFromTable: {fileID: 8300000, guid: ec44ff40c66f40e49a10db46fdeca5ad,
+    type: 3}
+  _placeWrenchNut1: {fileID: 8300000, guid: f48c3e2920e87e94a85a77362627b7d0, type: 3}
+  _placeWrenchNut2: {fileID: 8300000, guid: 7d5371573924dbf4ab1fecfc8583f8c5, type: 3}
+  _placeWrenchNut3: {fileID: 8300000, guid: a9dcbcb27230e60418672d9ac7852967, type: 3}
+  _placeWrenchNut4: {fileID: 8300000, guid: 670e8994f071dfe41ad7c3714117d83f, type: 3}
+  _rotateWrenchCounterClockwise: {fileID: 8300000, guid: b1e90cd39f41a674ba0b491c958f220a,
+    type: 3}
+  _placeWrenchBack: {fileID: 8300000, guid: 2ff4eada99b339846b0bc8d2c4d5d780, type: 3}
+  _removeNut1: {fileID: 8300000, guid: ba50aff8f9de0d943b4ecc3a0c866aaa, type: 3}
+  _removeNut2: {fileID: 8300000, guid: 4a4f6468ae0d9894cb2332a8f694301a, type: 3}
+  _removeNut3: {fileID: 8300000, guid: 8667f040f3b10294c90ba85a54b3d185, type: 3}
+  _removeNut4: {fileID: 8300000, guid: 37169970fe577f04eb00dc84fd66f0ea, type: 3}
+  _placeNutOnTable: {fileID: 8300000, guid: 251b6641bf5eaa246bbbe4d648b08502, type: 3}
+  _removeTireFromAxle: {fileID: 8300000, guid: 7ca7a0d2399d8ae44b8ddac42218cc68, type: 3}
+  _placeTireOnGround: {fileID: 8300000, guid: f4aa63623af936445b30a3fb9c13028a, type: 3}
+  _grabNewTire: {fileID: 8300000, guid: ad81977e3b803fc4ca271672dc510e03, type: 3}
+  _placeItOnAxle: {fileID: 8300000, guid: 149891cf14588b74287f3072fb7e390e, type: 3}
+  _nowGrabLugNut1: {fileID: 8300000, guid: 39ce3b5fbb358b34297149106663eaf5, type: 3}
+  _nowGrabLugNut2: {fileID: 8300000, guid: b081ef0dbfa7c754a8dff8e0699cf8d0, type: 3}
+  _nowGrabLugNut3: {fileID: 8300000, guid: 15b8e93944a1edb47b2feee5d41203ce, type: 3}
+  _nowGrabLugNut4: {fileID: 8300000, guid: 9521cbcd2607eaf42a084e282860ec8d, type: 3}
+  _placeNutOnTire: {fileID: 8300000, guid: cf6ee350895966748abdb293fa0a8697, type: 3}
+  _grabWrenchAgain: {fileID: 8300000, guid: c1177f060ebde314ab4359ae93aa07fc, type: 3}
+  _rotateWrenchClockWise: {fileID: 8300000, guid: d72d438de42571b48b3889b4c7f285cf,
+    type: 3}
+  _rotateCarJackToLowerCar: {fileID: 8300000, guid: 594641de99644de4083abe24d2e41362,
+    type: 3}
+  _placeCarJackHighlightedPos: {fileID: 8300000, guid: 4f0ed4bdd0ee8734d9967803c1048fb0,
+    type: 3}
+  _congrats: {fileID: 8300000, guid: 960c37b34d9b60144b58ed2056a03614, type: 3}
