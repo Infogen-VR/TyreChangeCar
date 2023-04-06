@@ -2,8 +2,10 @@ using SVR.Chaining;
 using SVR.Workflow.TriangleFactory;
 using SVR.Workflow.TriangleFactory.Scripts.Mechanics;
 using System;
+using System.Threading.Tasks;
 using Transfr.Platform.Fresh;
 using UnityEngine;
+using VRTK;
 
 namespace SVR.Workflow
 {
@@ -64,10 +66,77 @@ namespace SVR.Workflow
             Congrats
         }
 
-        int num = 0;
+        private void OnDestroy()
+        {
+            _sim.LeftController.GripPressed -= ValidateGhostModel;
+            _sim.RightController.GripPressed -= ValidateGhostModel;
+        }
+
+        private void ValidateGhostModel(object sender, ControllerInteractionEventArgs e)
+        {
+            Debug.Log("sender is " + sender.ToString());
+            VRTK_InteractGrab controller = ((VRTK_ControllerEvents)sender).GetComponent<VRTK_InteractGrabExtended>();
+            ConditionCheck(controller);
+            //if (controller.HasControllerGrabbedSomething())
+            //    Debug.Log("Execute logic here");
+           
+        }
+        private async void ConditionCheck(VRTK_InteractGrab controller)
+        {
+            await Task.Delay(100);
+            _stepChain = ChainManager.Get(_conditionalCompletion);
+            switch ((InternalStep)_internalStepHandler.CurrentStepIndex)
+            {
+                case InternalStep.PlaceWrenchNut2:
+                    if (controller.HasControllerGrabbedSomething())
+                        _stepChain
+                            .EnableObject(_sim.wrenchDropZoneNut2.gameObject)
+                            .AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut2);
+                    break;
+
+                case InternalStep.PlaceWrenchNut3:
+                    if (controller.HasControllerGrabbedSomething())
+                        _stepChain
+                            .EnableObject(_sim.wrenchDropZoneNut3.gameObject)
+                            .AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut3);
+                    break;
+
+                case InternalStep.PlaceWrenchNut4:
+                    if (controller.HasControllerGrabbedSomething())
+                        _stepChain
+                            .EnableObject(_sim.wrenchDropZoneNut4.gameObject)
+                            .AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut4);
+                    break;
+
+                case InternalStep.PlaceWrenchNut2_Final:
+                    if (controller.HasControllerGrabbedSomething())
+                        _stepChain
+                            .EnableObject(_sim.wrenchDropZoneNut2.gameObject)
+                            .AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut2);
+                    break;
+
+                case InternalStep.PlaceWrenchNut3_Final:
+                    if (controller.HasControllerGrabbedSomething())
+                        _stepChain
+                            .EnableObject(_sim.wrenchDropZoneNut3.gameObject)
+                            .AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut3);
+                    break;
+
+                case InternalStep.PlaceWrenchNut4_Final:
+                    if (controller.HasControllerGrabbedSomething())
+                        _stepChain
+                            .EnableObject(_sim.wrenchDropZoneNut4.gameObject)
+                            .AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut4);
+                    break;
+            }
+        }
+
         public override void OnEnter(ObjectReferences objectRefs, NextAction nextAction = null)
         {
             Debug.Log("Entering: [MainStep]IntroductionAnimated");
+
+            _sim.LeftController.GripPressed += ValidateGhostModel;
+            _sim.RightController.GripPressed += ValidateGhostModel;
             //UI.ScoreSheet.Instance.SetLevelName("Soups and Sauces");
 
             base.OnEnter(objectRefs);
@@ -78,6 +147,7 @@ namespace SVR.Workflow
 
         protected override void OnInternalStepEnter(InternalStepsHandler sender, ref InternalStepsHandler.EnterStepArgs args)
         {
+            ToggleControllerGrabbers(true);
             _stepChain?.Kill();
             _stepChain = ChainManager.Get(_conditionalCompletion);
             //_sim._gameDoor.SetActive(false);
@@ -138,8 +208,8 @@ namespace SVR.Workflow
 
                 case InternalStep.PlaceWrenchNut2:
                     _stepChain
-                    .EnableObject(_sim.wrenchDropZoneNut2.gameObject)
-                    .AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut2)
+                    //.EnableObject(_sim.wrenchDropZoneNut2.gameObject)
+                    //.AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut2)
                     .PlayCoach(_sim.soundData.PlaceWrenchNut2)
                     .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut2, 4f);
                     break;
@@ -154,8 +224,8 @@ namespace SVR.Workflow
 
                 case InternalStep.PlaceWrenchNut3:
                     _stepChain
-                    .EnableObject(_sim.wrenchDropZoneNut3.gameObject)
-                    .AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut3)
+                    //.EnableObject(_sim.wrenchDropZoneNut3.gameObject)
+                    //.AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut3)
                     .PlayCoach(_sim.soundData.PlaceWrenchNut3)
                     .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut3, 4f);
                     break;
@@ -170,8 +240,8 @@ namespace SVR.Workflow
 
                 case InternalStep.PlaceWrenchNut4:
                     _stepChain
-                    .EnableObject(_sim.wrenchDropZoneNut4.gameObject)
-                    .AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut4)
+                    //.EnableObject(_sim.wrenchDropZoneNut4.gameObject)
+                    //.AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut4)
                     .PlayCoach(_sim.soundData.PlaceWrenchNut4)
                     .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut4, 4f);
                     break;
@@ -393,8 +463,8 @@ namespace SVR.Workflow
                 case InternalStep.PlaceWrenchNut2_Final:
                     RefreshDropZonePreview(_sim.wrenchDropZoneNut2);
                     _stepChain
-                    .EnableObject(_sim.wrenchDropZoneNut2.gameObject)
-                    .AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut2)
+                    //.EnableObject(_sim.wrenchDropZoneNut2.gameObject)
+                    //.AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut2)
                     .PlayCoach(_sim.soundData.PlaceWrenchNut2)
                     .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut2, 4f);
                     break;
@@ -410,8 +480,8 @@ namespace SVR.Workflow
                 case InternalStep.PlaceWrenchNut3_Final:
                     RefreshDropZonePreview(_sim.wrenchDropZoneNut3);
                     _stepChain
-                    .EnableObject(_sim.wrenchDropZoneNut3.gameObject)
-                    .AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut3)
+                    //.EnableObject(_sim.wrenchDropZoneNut3.gameObject)
+                    //.AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut3)
                     .PlayCoach(_sim.soundData.PlaceWrenchNut3)
                     .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut3, 4f);
                     break;
@@ -427,8 +497,8 @@ namespace SVR.Workflow
                 case InternalStep.PlaceWrenchNut4_Final:
                     RefreshDropZonePreview(_sim.wrenchDropZoneNut4);
                     _stepChain
-                    .EnableObject(_sim.wrenchDropZoneNut4.gameObject)
-                    .AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut4)
+                    //.EnableObject(_sim.wrenchDropZoneNut4.gameObject)
+                    //.AddSnappedInDropZoneCondition(_sim.wrenchDropZoneNut4)
                     .PlayCoach(_sim.soundData.PlaceWrenchNut4)
                     .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut4, 4f);
                     break;
@@ -494,7 +564,6 @@ namespace SVR.Workflow
 
         protected override void OnInternalStepComplete(InternalStepsHandler sender, ref InternalStepsHandler.CompleteStepArgs args)
         {
-
             _sim.StopReminderAudio();
             _stepChain?.Kill();
             _stepChain = ChainManager.Get();
@@ -503,12 +572,12 @@ namespace SVR.Workflow
 
             switch ((InternalStep)args.CompletedStepIndex)
             {
-
                 case InternalStep.IntroAndGrabCarJack:
                     _stepChain.UnhighlightObject(_sim.carJack);
                     break;
 
                 case InternalStep.PlaceitUnderCar:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                         .DisableObject(_sim.jackDropZoneUnderCar)
                         .MakeUngrabbable(_sim.carJack);
@@ -524,6 +593,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceWrenchNut1:
+                    ToggleControllerGrabbers(false);
                     _stepChain.DisableObject(_sim.wrench);
                     break;
 
@@ -535,6 +605,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceWrenchNut2:
+                    ToggleControllerGrabbers(false);
                     _stepChain.DisableObject(_sim.wrench);
                     break;
 
@@ -546,6 +617,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceWrenchNut3:
+                    ToggleControllerGrabbers(false);
                     _stepChain.DisableObject(_sim.wrench);
                     break;
 
@@ -557,6 +629,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceWrenchNut4:
+                    ToggleControllerGrabbers(false);
                     _stepChain.DisableObject(_sim.wrench);
                     break;
 
@@ -568,6 +641,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceWrenchBack:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                         .MakeUngrabbable(_sim.wrench)
                         .DisableObject(_sim.wrenchDropZoneTable);
@@ -578,6 +652,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceNut1OnTable:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                         .MakeUngrabbable(_sim.lugNut1)
                         .DisableObject(_sim.nut1DropZoneTable);
@@ -588,6 +663,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceNut2OnTable:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                         .MakeUngrabbable(_sim.lugNut2)
                         .DisableObject(_sim.nut2DropZoneTable);
@@ -598,6 +674,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceNut3OnTable:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                         .MakeUngrabbable(_sim.lugNut3)
                         .DisableObject(_sim.nut3DropZoneTable);
@@ -608,6 +685,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceNut4OnTable:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                         .MakeUngrabbable(_sim.lugNut4)
                         .DisableObject(_sim.nut4DropZoneTable);
@@ -619,6 +697,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceTireOnGround:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                       .DisableObject(_sim.oldTireDropZone)
                       .MakeUngrabbable(_sim.tireDamaged);
@@ -630,6 +709,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceItOnAxle:
+                    ToggleControllerGrabbers(false);
                     _sim.tireDamagedVisualOnly.enabled = true;
                     _stepChain
                        .DisableObject(_sim.newTireDropZone)
@@ -643,6 +723,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceNut1OnTire:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                       .UnhighlightObject(_sim.nut1DropZoneTire)
                       .MakeUngrabbable(_sim.lugNut1);
@@ -655,6 +736,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceNut2OnTire:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                       .UnhighlightObject(_sim.nut2DropZoneTire)
                       .MakeUngrabbable(_sim.lugNut2);
@@ -667,6 +749,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceNut3OnTire:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                       .UnhighlightObject(_sim.nut3DropZoneTire)
                       .MakeUngrabbable(_sim.lugNut3);
@@ -679,6 +762,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceNut4OnTire:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                       .UnhighlightObject(_sim.nut4DropZoneTire)
                       .MakeUngrabbable(_sim.lugNut4);
@@ -689,6 +773,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceWrenchNut1_Final:
+                    ToggleControllerGrabbers(false);
                     _stepChain.DisableObject(_sim.wrench);
                     break;
 
@@ -700,6 +785,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceWrenchNut2_Final:
+                    ToggleControllerGrabbers(false);
                     _stepChain.DisableObject(_sim.wrench);
                     break;
 
@@ -711,6 +797,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceWrenchNut3_Final:
+                    ToggleControllerGrabbers(false);
                     _stepChain.DisableObject(_sim.wrench);
                     break;
 
@@ -722,6 +809,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceWrenchNut4_Final:
+                    ToggleControllerGrabbers(false);
                     _stepChain.DisableObject(_sim.wrench);
                     break;
 
@@ -733,6 +821,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceWrenchBack_Final:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                         .MakeUngrabbable(_sim.wrench)
                         .DisableObject(_sim.wrenchDropZoneTable);
@@ -748,6 +837,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceCarJackHighlightedPos:
+                    ToggleControllerGrabbers(false);
                     _stepChain
                         .DisableObject(_sim.jackDropZoneOriginalPos)
                         .MakeUngrabbable(_sim.carJack);
@@ -757,6 +847,11 @@ namespace SVR.Workflow
             args.Delay = _stepChain.TotalLength;
         }
 
+        private void ToggleControllerGrabbers(bool state)
+        {
+            _sim.leftHandGrabber.enabled = state;
+            _sim.rightHandGrabber.enabled = state;
+        }
 
         public override void OnExit(NextAction nextAction)
         {

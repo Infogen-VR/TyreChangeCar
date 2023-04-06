@@ -1,6 +1,5 @@
 ﻿using SVR.Interactable;
 using SVR.Workflow;
-using SVR.Workflow.TriangleFactory;
 using System.Collections;
 using UnityEngine;
 
@@ -54,7 +53,7 @@ public class MovableMainPiston : MonoBehaviour
             carPivot.localEulerAngles = localRotation;
 
             //if (pos.y >= maxVerticalLimit)
-            if (Mathf.Approximately(pos.y,maxVerticalLimit))
+            if (Mathf.Approximately(pos.y, maxVerticalLimit))
                 step.CompleteCondition();
         }
     }

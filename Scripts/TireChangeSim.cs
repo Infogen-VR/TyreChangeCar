@@ -2,7 +2,9 @@ using Interactable;
 using SVR.Interactable;
 using SVR.Workflow.TriangleFactory;
 using SVR.Workflow.TriangleFactory.Scripts.Mechanics;
+using SysmetisVR.V1.VRTK_extended;
 using UnityEngine;
+using VRTK;
 
 public class TireChangeSim : CustomSim
 {
@@ -67,6 +69,9 @@ public class TireChangeSim : CustomSim
     public CustomSnapDropZone wrenchDropZoneTable;
 
     public MovableMainPiston jackLeverPush;
+
+    public VRTK_InteractGrab leftHandGrabber;
+    public VRTK_InteractGrab rightHandGrabber;
 
     #region Initialization
 
