@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: 6220c923a41710b439da0c73c901df6f
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_Material
+    second: {fileID: 2100000, guid: a2fda1adc21810346b7113e26d2114e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fiat_H
+    second: {fileID: 2100000, guid: c52ec37efa96de94c80d15815cbd0ce8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Footpath
+    second: {fileID: 2100000, guid: 66a10db2beb736542a9b7eb0da18347f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lane_house1
+    second: {fileID: 2100000, guid: 948834dc5e9b6304894335774fce7e2d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lane_house2
+    second: {fileID: 2100000, guid: a237bf0404105bd458b33c57b177aaa4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lane_house3
+    second: {fileID: 2100000, guid: 48f8014040004744ab6becfe043560f6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lane_house4
+    second: {fileID: 2100000, guid: 4ee56e390619be24c83a1eaa5102ac0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Old_rust_car
+    second: {fileID: 2100000, guid: 4ebd98f4335d59f4b92d1667b4f56442, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Road2
+    second: {fileID: 2100000, guid: 47e9e6f4d1a73e84a87d287cc12ea4ef, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 02_-_Default_Base_Color
+    second: {fileID: 2800000, guid: 800c6abdbf5dcdb439661314f58be6ca, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 02_-_Default_Metallic
+    second: {fileID: 2800000, guid: 70638687cc0c5a94d9aa0ac4427d0e7a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 02_-_Default_Normal_OpenGL
+    second: {fileID: 2800000, guid: b8a53e0350a265e49a68742a7db7098a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 02_-_Default_Roughness
+    second: {fileID: 2800000, guid: 18e9c392524f1914a9674c655285f26d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Exterior_Footpath_AlbedoTransparency
+    second: {fileID: 2800000, guid: b84d815d16743c74fac710c5d30a97d1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Exterior_Footpath_MetallicSmoothness
+    second: {fileID: 2800000, guid: e9bffbfe21af98247ac283d200825949, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Exterior_Footpath_Normal
+    second: {fileID: 2800000, guid: d314a1e10f4d2084c923f8c8f536059e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Exterior_Footpath_Roughness
+    second: {fileID: 2800000, guid: a5373120a4500f44a85dd6b9256b9fee, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Exterior_Road2_AlbedoTransparency
+    second: {fileID: 2800000, guid: fa4e7aae3b193474497420f780b6af7a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Exterior_Road2_MetallicSmoothness
+    second: {fileID: 2800000, guid: 2c0bea08ef797ab409be47275a0635ba, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Exterior_Road2_Normal
+    second: {fileID: 2800000, guid: cb48b4951b029004d8dcbbf7ebb8b364, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Exterior_Road2_Roughness
+    second: {fileID: 2800000, guid: 0385ffb12da850c47b2337c39de22b6a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_mat_01_Base_Color
+    second: {fileID: 2800000, guid: 5b99f1db1dba33f4a823c30f631ac849, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_mat_Base_Color
+    second: {fileID: 2800000, guid: a3139558ba1a9eb40b0aa5db7188c6ad, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_mat_Metallic
+    second: {fileID: 2800000, guid: 16bc7e749e5334642acbd6d0124905b0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_mat_Normal
+    second: {fileID: 2800000, guid: fc093fabb5fff044c8398edd63e9ad80, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_mat_Roughness
+    second: {fileID: 2800000, guid: 70339ff06bad36c499bc96aa302c6970, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_metalroofing_mat_Base_Color
+    second: {fileID: 2800000, guid: 7729d3b9b1e8edd4cae6a5016e4aa51b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_metalroofing_mat_Metallic
+    second: {fileID: 2800000, guid: 4720cc61ff95d5941b4acc062ee0224b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_metalroofing_mat_Normal
+    second: {fileID: 2800000, guid: 3cfe8f0bdcfb71547955b08f1913b8f1, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_metalroofing_mat_Roughness
+    second: {fileID: 2800000, guid: 93e2ea5c05b91fb4cb6dca261f0e2792, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_window_mat_Base_Color
+    second: {fileID: 2800000, guid: c05be5ae52df3d84bb378f49e28c397a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_window_mat_Metallic
+    second: {fileID: 2800000, guid: d8546a6c00c90cb43a20e5aa9dc9ca35, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_window_mat_Normal_DirectX
+    second: {fileID: 2800000, guid: 99d409f03b76165439da15bdf09bb945, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House_06_window_mat_Roughness
+    second: {fileID: 2800000, guid: 6777f7d3433a0c44d8c043d2f7f9e99e, type: 3}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
