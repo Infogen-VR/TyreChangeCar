@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using Interactable;
+using SVR;
 using SVR.Interactable;
 using SVR.Workflow.TriangleFactory;
 using SVR.Workflow.TriangleFactory.Scripts.Mechanics;
@@ -8,34 +11,53 @@ using VRTK;
 
 public class TireChangeSim : CustomSim
 {
+    public int currentTime = 0;
+
     [SerializeField] private SoundDataTireChangeSim _soundData;
 
     public SoundDataTireChangeSim soundData => _soundData;
+    public AudioSource WrinchAudioSource;
+    public int StepIndexToComplete=0;
 
-    [Header("Car jack variables")]
-    public BaseItem carJack;
+    [Header("Button On ")]
+    public Touchable buttonOn;   
+    public GameObject buttonOnObject; 
+    public GameObject buttonOnHighlight;
+    public Animator carLifter1;
+    public Animator carLifter2;
+    public Animator carLifter3;
+    public Animator carLifter4;
 
-    public CustomSnapDropZone jackDropZoneUnderCar;
-    public CustomSnapDropZone jackDropZoneOriginalPos;
 
-    public CustomRotatorV2 carJackHandlePushRotator;
+    [Header("Button Off")]
+    public Touchable buttonOff;
+    public GameObject buttonOffObject;
+    public GameObject buttonOffHighlight;
 
-    [Header("Lug nut variables")]
+    [Header("Car Up and Down Handel")]
+    public GameObject HandelHighlighter;
+    public Animator carUpAnimation;
+    public Animator carLifterAnimatoin; 
+    public CustomRotatorV2 carUpAndDownHandel;
+    public Animator RotationNutAnim;
+
+    [Header("Lug nut variables And TabelTrigger")]
 
     public BaseItem lugNut1;
     public BaseItem lugNut2;
     public BaseItem lugNut3;
     public BaseItem lugNut4;
+    public BaseItem lugNut5;
 
-    public CustomSnapDropZone nut1DropZoneTable;
-    public CustomSnapDropZone nut2DropZoneTable;
-    public CustomSnapDropZone nut3DropZoneTable;
-    public CustomSnapDropZone nut4DropZoneTable;
+    public GameObject tyerAttachlugNut1;
+    public GameObject tyerAttachlugNut2;
+    public GameObject tyerAttachlugNut3;
+    public GameObject tyerAttachlugNut4;
+    public GameObject tyerAttachlugNut5;
 
-    public CustomSnapDropZone nut1DropZoneTire;
-    public CustomSnapDropZone nut2DropZoneTire;
-    public CustomSnapDropZone nut3DropZoneTire;
-    public CustomSnapDropZone nut4DropZoneTire;
+    public TableTrigger tabelTrigger;
+    public GameObject tabelPlane;
+
 
 
     [Header("Tire variables")]
@@ -47,31 +69,34 @@ public class TireChangeSim : CustomSim
     public BaseItem tireGood;
 
     public MeshRenderer tireDamagedVisualOnly;
+    public MeshRenderer tireDamagedVisualOnly2;
+    public Lightonoff TyerMaterial;
+    public BaseItem tireReset;
 
 
     [Header("Wrench variables")]
     public BaseItem wrench;
 
-    public CustomRotatorV2 nut1LooseRotator;
-    public CustomRotatorV2 nut2LooseRotator;
-    public CustomRotatorV2 nut3LooseRotator;
-    public CustomRotatorV2 nut4LooseRotator;
-    public CustomRotatorV2 nut1TightenRotator;
-    public CustomRotatorV2 nut2TightenRotator;
-    public CustomRotatorV2 nut3TightenRotator;
-    public CustomRotatorV2 nut4TightenRotator;
-    public CustomRotatorV2 carJackLowerRotator;
+    public ExtendedSnapAttachV2 SnapWrench;
+    public ExtendedSnapAttachV2 SnapWrench2;
+    public ExtendedSnapAttachV2 SnapWrench3;
+    public ExtendedSnapAttachV2 SnapWrench4;
+    public ExtendedSnapAttachV2 SnapWrench5;
 
-    public CustomSnapDropZone wrenchDropZoneNut1;
-    public CustomSnapDropZone wrenchDropZoneNut2;
-    public CustomSnapDropZone wrenchDropZoneNut3;
-    public CustomSnapDropZone wrenchDropZoneNut4;
     public CustomSnapDropZone wrenchDropZoneTable;
-
-    public MovableMainPiston jackLeverPush;
+    public CustomSnapDropZone nut1DropZoneTire;
+    public CustomSnapDropZone nut2DropZoneTire;
+    public CustomSnapDropZone nut3DropZoneTire;
+    public CustomSnapDropZone nut4DropZoneTire;
+    public CustomSnapDropZone nut5DropZoneTire;
 
     public VRTK_InteractGrab leftHandGrabber;
     public VRTK_InteractGrab rightHandGrabber;
+
+
+   
+
+
 
     #region Initialization
 
@@ -80,5 +105,44 @@ public class TireChangeSim : CustomSim
         base.Start();
         EnableRightPointer(true);
     }
+
+    public void CarLifterDownAnimation()
+    {
+        carUpAnimation.SetBool("a", true);
+        carLifterAnimatoin.SetBool("a", true);
+    }
+    public void LifterArmsRotation()
+    {
+        carLifter1.SetBool("a", true);
+        carLifter2.SetBool("a", true);
+        carLifter3.SetBool("a", true);
+        carLifter4.SetBool("a", true);
+
+    }
+
+
+   
+  /*  public void StartTimer()
+    {
+        //currentTime = 0;
+       
+            StartCoroutine(Timer());
+        
+        
+    }
+
+    public IEnumerator Timer()
+    {
+        Debug.Log(currentTime);
+        yield return new WaitForSeconds(1.0f);
+        currentTime++;
+        Debug.Log(currentTime);
+    }    */
+
+    //public void stopTimer()
+    //{
+    //    currentTime = 0;
+    //    StopAllCoroutines();
+    //}
     #endregion
 }

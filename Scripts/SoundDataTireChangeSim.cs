@@ -45,6 +45,10 @@ public class SoundDataTireChangeSim : ScriptableObject
     public AudioClip PlaceWrenchNut4 => _placeWrenchNut4;
 
     [SerializeField]
+    private AudioClip _placeWrenchNut5;
+    public AudioClip PlaceWrenchNut5 => _placeWrenchNut5;
+
+    [SerializeField]
     private AudioClip _rotateWrenchCounterClockwise;
     public AudioClip RotateWrenchCounterClockwise => _rotateWrenchCounterClockwise;
 
@@ -67,6 +71,10 @@ public class SoundDataTireChangeSim : ScriptableObject
     [SerializeField]
     private AudioClip _removeNut4;
     public AudioClip RemoveNut4 => _removeNut4;
+
+    [SerializeField]
+    private AudioClip _removeNut5;
+    public AudioClip RemoveNut5 => _removeNut5;
 
     [SerializeField]
     private AudioClip _placeNutOnTable;
@@ -105,6 +113,10 @@ public class SoundDataTireChangeSim : ScriptableObject
     public AudioClip NowGrabLugNut4 => _nowGrabLugNut4;
 
     [SerializeField]
+    private AudioClip _nowGrabLugNut5;
+    public AudioClip NowGrabLugNut5 => _nowGrabLugNut5;
+
+    [SerializeField]
     private AudioClip _placeNutOnTire;
     public AudioClip PlaceNutOnTire => _placeNutOnTire;
 
@@ -127,4 +139,8 @@ public class SoundDataTireChangeSim : ScriptableObject
     [SerializeField]
     private AudioClip _congrats;
     public AudioClip Congrats => _congrats;
+
+    [SerializeField]
+    private AudioClip _WrinchAudio;
+    public AudioClip WrinchAudio => _WrinchAudio;
 }

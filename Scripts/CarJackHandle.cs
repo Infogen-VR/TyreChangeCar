@@ -1,5 +1,6 @@
 ﻿using SVR.Interactable;
 using SVR.Workflow;
+using SVR.Workflow.TriangleFactory.Scripts.Mechanics;
 using System.Collections;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public class CarJackHandle : MonoBehaviour
 
     private void Start()
     {
-        customRotater.ClockwiseLimitReachedEvent += StartLowerCar;
+        customRotater.ClockwiseLimitReachedEvent += StartLowerCar;      
     }
 
     private void OnDestroy()

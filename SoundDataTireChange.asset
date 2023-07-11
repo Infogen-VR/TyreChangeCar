@@ -23,6 +23,7 @@ MonoBehaviour:
   _placeWrenchNut2: {fileID: 8300000, guid: 7d5371573924dbf4ab1fecfc8583f8c5, type: 3}
   _placeWrenchNut3: {fileID: 8300000, guid: a9dcbcb27230e60418672d9ac7852967, type: 3}
   _placeWrenchNut4: {fileID: 8300000, guid: 670e8994f071dfe41ad7c3714117d83f, type: 3}
+  _placeWrenchNut5: {fileID: 8300000, guid: 8905f4915eb3bc34284f6177db7052f0, type: 3}
   _rotateWrenchCounterClockwise: {fileID: 8300000, guid: b1e90cd39f41a674ba0b491c958f220a,
     type: 3}
   _placeWrenchBack: {fileID: 8300000, guid: 2ff4eada99b339846b0bc8d2c4d5d780, type: 3}
@@ -30,6 +31,7 @@ MonoBehaviour:
   _removeNut2: {fileID: 8300000, guid: 4a4f6468ae0d9894cb2332a8f694301a, type: 3}
   _removeNut3: {fileID: 8300000, guid: 8667f040f3b10294c90ba85a54b3d185, type: 3}
   _removeNut4: {fileID: 8300000, guid: 37169970fe577f04eb00dc84fd66f0ea, type: 3}
+  _removeNut5: {fileID: 8300000, guid: 59c582286ffac144bae4a48efd3aef11, type: 3}
   _placeNutOnTable: {fileID: 8300000, guid: 251b6641bf5eaa246bbbe4d648b08502, type: 3}
   _removeTireFromAxle: {fileID: 8300000, guid: 7ca7a0d2399d8ae44b8ddac42218cc68, type: 3}
   _placeTireOnGround: {fileID: 8300000, guid: f4aa63623af936445b30a3fb9c13028a, type: 3}
@@ -39,6 +41,7 @@ MonoBehaviour:
   _nowGrabLugNut2: {fileID: 8300000, guid: b081ef0dbfa7c754a8dff8e0699cf8d0, type: 3}
   _nowGrabLugNut3: {fileID: 8300000, guid: 15b8e93944a1edb47b2feee5d41203ce, type: 3}
   _nowGrabLugNut4: {fileID: 8300000, guid: 9521cbcd2607eaf42a084e282860ec8d, type: 3}
+  _nowGrabLugNut5: {fileID: 8300000, guid: 384f608915874f248bb487495822453e, type: 3}
   _placeNutOnTire: {fileID: 8300000, guid: cf6ee350895966748abdb293fa0a8697, type: 3}
   _grabWrenchAgain: {fileID: 8300000, guid: c1177f060ebde314ab4359ae93aa07fc, type: 3}
   _rotateWrenchClockWise: {fileID: 8300000, guid: d72d438de42571b48b3889b4c7f285cf,
