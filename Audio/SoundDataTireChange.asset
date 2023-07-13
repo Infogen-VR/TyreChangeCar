@@ -14,19 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sfxConfirm: {fileID: 8300000, guid: 592a99c73d2cb3d46a8963286ec0a0c6, type: 3}
   _intro: {fileID: 8300000, guid: 92cf64d68d73c1a4093b7a69ad5c7022, type: 3}
-  _grabCarJack: {fileID: 8300000, guid: ada8ccb481bb6084c961c1faaf797b05, type: 3}
-  _placeitUnderCar: {fileID: 8300000, guid: 13fbed50f64165149925c46efa7bb90a, type: 3}
-  _pushJackLever: {fileID: 8300000, guid: 87327b2de844c8841b164be9445068df, type: 3}
-  _grabWrenchFromTable: {fileID: 8300000, guid: ec44ff40c66f40e49a10db46fdeca5ad,
+  _GreenButtonPress: {fileID: 8300000, guid: 87c659587a9d33447867c3736bb039de, type: 3}
+  _HandelRotate: {fileID: 8300000, guid: 4534f67f603262e4389ae6ef7fb5cdce, type: 3}
+  _grabWrenchFromTable: {fileID: 8300000, guid: 20a112ffe10bf3a46908836d08ae283b,
     type: 3}
   _placeWrenchNut1: {fileID: 8300000, guid: f48c3e2920e87e94a85a77362627b7d0, type: 3}
+  _PressTriggerLoseTheNut1: {fileID: 8300000, guid: b9bfe00b3c19dea47aed7590bf2459c4,
+    type: 3}
+  _PressTriggerLoseTheNut2: {fileID: 8300000, guid: c735d2d2f47ebb64cbfa9acaa0c91b80,
+    type: 3}
+  _PressTriggerLoseTheNut3: {fileID: 8300000, guid: ff640819e1b412a46b86d95e34d885b7,
+    type: 3}
+  _PressTriggerLoseTheNut4: {fileID: 8300000, guid: 2de0559ae0f82484daaf44f065bcb8ca,
+    type: 3}
+  _PressTriggerLoseTheNut5: {fileID: 8300000, guid: a8d38020db9707f46bd4dda18032c931,
+    type: 3}
   _placeWrenchNut2: {fileID: 8300000, guid: 7d5371573924dbf4ab1fecfc8583f8c5, type: 3}
   _placeWrenchNut3: {fileID: 8300000, guid: a9dcbcb27230e60418672d9ac7852967, type: 3}
   _placeWrenchNut4: {fileID: 8300000, guid: 670e8994f071dfe41ad7c3714117d83f, type: 3}
   _placeWrenchNut5: {fileID: 8300000, guid: 8905f4915eb3bc34284f6177db7052f0, type: 3}
   _rotateWrenchCounterClockwise: {fileID: 8300000, guid: b1e90cd39f41a674ba0b491c958f220a,
     type: 3}
-  _placeWrenchBack: {fileID: 8300000, guid: 2ff4eada99b339846b0bc8d2c4d5d780, type: 3}
+  _placeWrenchBack: {fileID: 8300000, guid: dae43ba8d3579774f92daa5a268544f9, type: 3}
   _removeNut1: {fileID: 8300000, guid: ba50aff8f9de0d943b4ecc3a0c866aaa, type: 3}
   _removeNut2: {fileID: 8300000, guid: 4a4f6468ae0d9894cb2332a8f694301a, type: 3}
   _removeNut3: {fileID: 8300000, guid: 8667f040f3b10294c90ba85a54b3d185, type: 3}
@@ -43,11 +52,18 @@ MonoBehaviour:
   _nowGrabLugNut4: {fileID: 8300000, guid: 9521cbcd2607eaf42a084e282860ec8d, type: 3}
   _nowGrabLugNut5: {fileID: 8300000, guid: 384f608915874f248bb487495822453e, type: 3}
   _placeNutOnTire: {fileID: 8300000, guid: cf6ee350895966748abdb293fa0a8697, type: 3}
-  _grabWrenchAgain: {fileID: 8300000, guid: c1177f060ebde314ab4359ae93aa07fc, type: 3}
+  _PressTriggerTightTheNut1: {fileID: 8300000, guid: ad66b6bb0c1657e409c10aab8752abcd,
+    type: 3}
+  _PressTriggerTightTheNut2: {fileID: 8300000, guid: 6942e9cb359c2e2418a10e1d708dd3c6,
+    type: 3}
+  _PressTriggerTightTheNut3: {fileID: 8300000, guid: 822c0a42203d3ed46bbe155d27ef4b82,
+    type: 3}
+  _PressTriggerTightTheNut4: {fileID: 8300000, guid: fec04169dce5a5f4fbcf8330b07a7199,
+    type: 3}
+  _PressTriggerTightTheNut5: {fileID: 8300000, guid: 3050b6d7751245b48809c93b1c64a610,
+    type: 3}
+  _HandelDown: {fileID: 8300000, guid: 7b964a9fb92281446b052108c3fc58a1, type: 3}
+  _RedButtonPress: {fileID: 8300000, guid: fef7d825ee7b9b04d8d7b1c98afbae6b, type: 3}
   _rotateWrenchClockWise: {fileID: 8300000, guid: d72d438de42571b48b3889b4c7f285cf,
-    type: 3}
-  _rotateCarJackToLowerCar: {fileID: 8300000, guid: 594641de99644de4083abe24d2e41362,
-    type: 3}
-  _placeCarJackHighlightedPos: {fileID: 8300000, guid: 4f0ed4bdd0ee8734d9967803c1048fb0,
     type: 3}
   _congrats: {fileID: 8300000, guid: 960c37b34d9b60144b58ed2056a03614, type: 3}

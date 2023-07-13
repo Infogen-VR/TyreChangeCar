@@ -13,16 +13,12 @@ public class SoundDataTireChangeSim : ScriptableObject
     public AudioClip Intro => _intro;
 
     [SerializeField]
-    private AudioClip _grabCarJack;
-    public AudioClip GrabCarJack => _grabCarJack;
+    private AudioClip _GreenButtonPress;
+    public AudioClip GreenButtonPress => _GreenButtonPress;
 
     [SerializeField]
-    private AudioClip _placeitUnderCar;
-    public AudioClip PlaceitUnderCar => _placeitUnderCar;
-
-    [SerializeField]
-    private AudioClip _pushJackLever;
-    public AudioClip PushJackLever => _pushJackLever;
+    private AudioClip _HandelRotate;
+    public AudioClip HandelRotate => _HandelRotate;
 
     [SerializeField]
     private AudioClip _grabWrenchFromTable;
@@ -31,6 +27,26 @@ public class SoundDataTireChangeSim : ScriptableObject
     [SerializeField]
     private AudioClip _placeWrenchNut1;
     public AudioClip PlaceWrenchNut1 => _placeWrenchNut1;
+
+    [SerializeField]
+    private AudioClip _PressTriggerLoseTheNut1;
+    public AudioClip PressTriggerLoseTheNut1 => _PressTriggerLoseTheNut1;
+
+    [SerializeField]
+    private AudioClip _PressTriggerLoseTheNut2;
+    public AudioClip PressTriggerLoseTheNut2 => _PressTriggerLoseTheNut2;
+
+    [SerializeField]
+    private AudioClip _PressTriggerLoseTheNut3;
+    public AudioClip PressTriggerLoseTheNut3 => _PressTriggerLoseTheNut3;
+
+    [SerializeField]
+    private AudioClip _PressTriggerLoseTheNut4;
+    public AudioClip PressTriggerLoseTheNut4 => _PressTriggerLoseTheNut4;
+
+    [SerializeField]
+    private AudioClip _PressTriggerLoseTheNut5;
+    public AudioClip PressTriggerLoseTheNut5 => _PressTriggerLoseTheNut5;
 
     [SerializeField]
     private AudioClip _placeWrenchNut2;
@@ -121,26 +137,39 @@ public class SoundDataTireChangeSim : ScriptableObject
     public AudioClip PlaceNutOnTire => _placeNutOnTire;
 
     [SerializeField]
-    private AudioClip _grabWrenchAgain;
-    public AudioClip GrabWrenchAgain => _grabWrenchAgain;
+    private AudioClip _PressTriggerTightTheNut1;
+    public AudioClip PressTriggerTightTheNut1 => _PressTriggerTightTheNut1;
+
+    [SerializeField]
+    private AudioClip _PressTriggerTightTheNut2;
+    public AudioClip PressTriggerTightTheNut2 => _PressTriggerTightTheNut2;
+
+    [SerializeField]
+    private AudioClip _PressTriggerTightTheNut3;
+    public AudioClip PressTriggerTightTheNut3 => _PressTriggerTightTheNut3;
+
+    [SerializeField]
+    private AudioClip _PressTriggerTightTheNut4;
+    public AudioClip PressTriggerTightTheNut4 => _PressTriggerTightTheNut4;
+
+    [SerializeField]
+    private AudioClip _PressTriggerTightTheNut5;
+    public AudioClip PressTriggerTightTheNut5 => _PressTriggerTightTheNut5;
+
+    [SerializeField]
+    private AudioClip _HandelDown;
+    public AudioClip HandelDown => _HandelDown;
+
+    [SerializeField]
+    private AudioClip _RedButtonPress;
+    public AudioClip RedButtonPress => _RedButtonPress;
 
     [SerializeField]
     private AudioClip _rotateWrenchClockWise;
     public AudioClip RotateWrenchClockWise => _rotateWrenchClockWise;
 
     [SerializeField]
-    private AudioClip _rotateCarJackToLowerCar;
-    public AudioClip RotateCarJackToLowerCar => _rotateCarJackToLowerCar;
-
-    [SerializeField]
-    private AudioClip _placeCarJackHighlightedPos;
-    public AudioClip PlaceCarJackHighlightedPos => _placeCarJackHighlightedPos;
-
-    [SerializeField]
     private AudioClip _congrats;
     public AudioClip Congrats => _congrats;
 
-    [SerializeField]
-    private AudioClip _WrinchAudio;
-    public AudioClip WrinchAudio => _WrinchAudio;
 }

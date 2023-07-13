@@ -19,6 +19,7 @@ public class TireChangeSim : CustomSim
     public AudioSource WrinchAudioSource;
     public int StepIndexToComplete=0;
 
+
     [Header("Button On ")]
     public Touchable buttonOn;   
     public GameObject buttonOnObject; 
@@ -90,14 +91,6 @@ public class TireChangeSim : CustomSim
     public CustomSnapDropZone nut4DropZoneTire;
     public CustomSnapDropZone nut5DropZoneTire;
 
-    public VRTK_InteractGrab leftHandGrabber;
-    public VRTK_InteractGrab rightHandGrabber;
-
-
-   
-
-
-
     #region Initialization
 
     protected override void Start()
@@ -119,30 +112,5 @@ public class TireChangeSim : CustomSim
         carLifter4.SetBool("a", true);
 
     }
-
-
-   
-  /*  public void StartTimer()
-    {
-        //currentTime = 0;
-       
-            StartCoroutine(Timer());
-        
-        
-    }
-
-    public IEnumerator Timer()
-    {
-        Debug.Log(currentTime);
-        yield return new WaitForSeconds(1.0f);
-        currentTime++;
-        Debug.Log(currentTime);
-    }    */
-
-    //public void stopTimer()
-    //{
-    //    currentTime = 0;
-    //    StopAllCoroutines();
-    //}
     #endregion
 }
