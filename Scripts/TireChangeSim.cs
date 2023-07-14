@@ -17,6 +17,7 @@ public class TireChangeSim : CustomSim
 
     public SoundDataTireChangeSim soundData => _soundData;
     public AudioSource WrinchAudioSource;
+    public AudioSource lifterAudio;
     public int StepIndexToComplete=0;
 
 

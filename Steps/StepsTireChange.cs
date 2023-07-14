@@ -803,6 +803,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.CarLifter:
+                    _sim.lifterAudio.Play();
                     _stepChain
                         .UnhighlightObject(_sim.HandelHighlighter)
                         .EnableBehaviour(_sim.carLifterAnimatoin)
@@ -1106,6 +1107,7 @@ namespace SVR.Workflow
 
                 case InternalStep.CarLifterDown:
                     _sim.CarLifterDownAnimation();
+                    _sim.lifterAudio.Play();
                     _stepChain
                         .UnhighlightObject(_sim.carUpAndDownHandel)
                         .DisableBehaviour(_sim.carUpAndDownHandel)
