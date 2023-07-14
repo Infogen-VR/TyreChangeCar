@@ -22,27 +22,22 @@ namespace SVR.Workflow
 
             GrabImpactWrenchFromTable,
             PlaceWrenchNut1,
-            RotateWrenchAnimation1,
             RemoveNut1,
             PlaceNut1OnTable,
 
             PlaceWrenchNut2,
-            RotateWrenchAnimation2,
             RemoveNut2,
             PlaceNut2OnTable,
 
             PlaceWrenchNut3,
-            RotateWrenchAnimation3,
             RemoveNut3,
             PlaceNut3OnTable,
 
             PlaceWrenchNut4,
-            RotateWrenchAnimation4,
             RemoveNut4,
             PlaceNut4OnTable,
 
             PlaceWrenchNut5,
-            RotateWrenchAnimation5,
             RemoveNut5,
             PlaceNut5OnTable,
 
@@ -67,15 +62,10 @@ namespace SVR.Workflow
             GrabWrenchAgain,
 
             WrenchPlaceOnNut1,
-            WrenchAnimationTrigger1,
             WrenchPlaceOnNut2,
-            WrenchAnimationTrigger2,
             WrenchPlaceOnNut3,
-            WrenchAnimationTrigger3,
             WrenchPlaceOnNut4,
-            WrenchAnimationTrigger4,
             WrenchPlaceOnNut5,
-            WrenchAnimationTrigger5,
 
             PlaceWrenchOnTabel,
             CarLifterDown,
@@ -205,29 +195,27 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.PlaceWrenchNut1:
+                    _sim.StepIndexToComplete = 3;
+                    TriggerButtonPressedForWrinch();
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceWrenchNut1)
                         .EnableObject(_sim.SnapWrench)
-                        .AddSnappedCondition(_sim.SnapWrench,_sim.wrench)
                         .PlayRepeatingReminder(_sim,_sim.soundData.PlaceWrenchNut1,5f)
                         ;
                     break;
 
-                case InternalStep.RotateWrenchAnimation1:
-                    _sim.StepIndexToComplete = 4;
-                    TriggerButtonPressedForWrinch();                   
-                    _stepChain
-                        .PlayCoach(_sim.soundData.PressTriggerLoseTheNut1)
-                        .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerLoseTheNut1, 5f)
-                        ;
-                    break;
-
                 case InternalStep.RemoveNut1:
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed1;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased;
                     _sim.lugNut1.DroppedEvent += LugNut1_DroppedEvent;
                     _stepChain
-                        .PlayCoach(_sim.soundData.RemoveNut1)
-                        .MakeGrabbable(_sim.lugNut1)
+                     .EnableObject(_sim.lugNut1)
+                        .DisableObject(_sim.tyerAttachlugNut1)
+                        .DisableObject(_sim.SnapWrench);
+                    _stepChain                       
+                        .PlayCoach(_sim.soundData.RemoveNut1)                       
                         .HighlightObject(_sim.lugNut1)
+                        .MakeGrabbable(_sim.lugNut1)
                         .AddGrabCondition(_sim.lugNut1)
                         .PlayRepeatingReminder(_sim,_sim.soundData.RemoveNut1,5f)
                         ;
@@ -240,34 +228,28 @@ namespace SVR.Workflow
                         .AddTableTriggerCondition(_sim.tabelTrigger, _sim.lugNut1)
                         .PlayRepeatingReminder(_sim,_sim.soundData.PlaceNutOnTable,5f)  
                         ;
+                    _sim.lugNut1.DroppedEvent += LugNut1_DroppedEvent1;
                     break;
 
-
                 case InternalStep.PlaceWrenchNut2:
+                    _sim.StepIndexToComplete = 6;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed += VrtkController_TriggerPressed;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased += VrtkController_TriggerReleased1;
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceWrenchNut2)
                         .EnableObject(_sim.SnapWrench2)
-                        .AddSnappedCondition(_sim.SnapWrench2, _sim.wrench)
                         .PlayRepeatingReminder(_sim,_sim.soundData.PlaceWrenchNut2,5f)
                         ;
                     break;
 
-                case InternalStep.RotateWrenchAnimation2:
-                    _sim.StepIndexToComplete = 8;
-                    TriggerButtonPressedForWrinch();               
-                    _stepChain
-                       .PlayCoach(_sim.soundData.PressTriggerLoseTheNut2)
-                       .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerLoseTheNut2, 5f)
-                        ;
-                    break;
-
                 case InternalStep.RemoveNut2:
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased1;
                     _sim.lugNut2.DroppedEvent += LugNut1_DroppedEvent;
-                    _stepChain
+                    _stepChain                       
                         .EnableObject(_sim.lugNut2)
                         .DisableObject(_sim.tyerAttachlugNut2)
-                        .DisableObject(_sim.SnapWrench2);
-                    _stepChain
+                        .DisableObject(_sim.SnapWrench2)
                         .PlayCoach(_sim.soundData.RemoveNut2)
                         .HighlightObject(_sim.lugNut2)
                         .MakeGrabbable(_sim.lugNut2)
@@ -282,34 +264,29 @@ namespace SVR.Workflow
                         .HighlightObject(_sim.tabelPlane)
                         .AddTableTriggerCondition(_sim.tabelTrigger, _sim.lugNut2)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PlaceNutOnTable, 5f)
-                            ;
+                        ;
+                    _sim.lugNut2.DroppedEvent += LugNut2_DroppedEvent;
                     break;
 
                 case InternalStep.PlaceWrenchNut3:
+                    _sim.StepIndexToComplete = 9;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed += VrtkController_TriggerPressed2;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased += VrtkController_TriggerReleased2;
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceWrenchNut3)
                         .EnableObject(_sim.SnapWrench3)
-                        .AddSnappedCondition(_sim.SnapWrench3, _sim.wrench)
                         .PlayRepeatingReminder(_sim,_sim.soundData.PlaceWrenchNut3,5f)
                         ;
                         break;
 
-                case InternalStep.RotateWrenchAnimation3:
-                    _sim.StepIndexToComplete = 12;
-                    TriggerButtonPressedForWrinch();               
-                    _stepChain
-                        .PlayCoach(_sim.soundData.PressTriggerLoseTheNut3)
-                        .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerLoseTheNut3, 5f)
-                        ;
-                    break;
-
                 case InternalStep.RemoveNut3:
-                    _sim.lugNut3.DroppedEvent += LugNut1_DroppedEvent; 
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed2;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased2;
+                    _sim.lugNut3.DroppedEvent += LugNut1_DroppedEvent;
                     _stepChain
                         .EnableObject(_sim.lugNut3)
                         .DisableObject(_sim.tyerAttachlugNut3)
-                        .DisableObject(_sim.SnapWrench3);
-                    _stepChain
+                        .DisableObject(_sim.SnapWrench3)
                         .PlayCoach(_sim.soundData.RemoveNut3)
                         .HighlightObject(_sim.lugNut3)
                         .MakeGrabbable(_sim.lugNut3)                       
@@ -325,33 +302,28 @@ namespace SVR.Workflow
                         .AddTableTriggerCondition(_sim.tabelTrigger, _sim.lugNut3)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PlaceNutOnTable, 5f)
                         ;
+                    _sim.lugNut3.DroppedEvent += LugNut3_DroppedEvent;
                     break;
 
                 case InternalStep.PlaceWrenchNut4:
+                    _sim.StepIndexToComplete = 12;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed += VrtkController_TriggerPressed3;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased += VrtkController_TriggerReleased3;
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceWrenchNut4)
                         .EnableObject(_sim.SnapWrench4)
-                        .AddSnappedCondition(_sim.SnapWrench4, _sim.wrench)
                         .PlayRepeatingReminder(_sim,_sim.soundData.PlaceWrenchNut4,5f)
                         ;
                     break;
 
-                case InternalStep.RotateWrenchAnimation4:
-                    _sim.StepIndexToComplete = 16;
-                    TriggerButtonPressedForWrinch();                   
-                    _stepChain
-                        .PlayCoach(_sim.soundData.PressTriggerLoseTheNut4)
-                        .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerLoseTheNut4, 5f)
-                        ;
-                    break;
-
                 case InternalStep.RemoveNut4:
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed3;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased3;
                     _sim.lugNut4.DroppedEvent += LugNut1_DroppedEvent;
                     _stepChain
                         .EnableObject(_sim.lugNut4)
                         .DisableObject(_sim.tyerAttachlugNut4)
-                        .DisableObject(_sim.SnapWrench4);
-                    _stepChain
+                        .DisableObject(_sim.SnapWrench4)
                         .PlayCoach(_sim.soundData.RemoveNut4)
                         .HighlightObject(_sim.lugNut4)
                         .MakeGrabbable(_sim.lugNut4)              
@@ -366,34 +338,29 @@ namespace SVR.Workflow
                         .HighlightObject(_sim.tabelPlane)
                         .AddTableTriggerCondition(_sim.tabelTrigger, _sim.lugNut4)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PlaceNutOnTable, 5f)
-                            ;
+                        ;
+                    _sim.lugNut4.DroppedEvent += LugNut4_DroppedEvent;
                     break;
 
                 case InternalStep.PlaceWrenchNut5:
+                    _sim.StepIndexToComplete = 15;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed += VrtkController_TriggerPressed4;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased += VrtkController_TriggerReleased4;
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceWrenchNut5)
                         .EnableObject(_sim.SnapWrench5)
-                        .AddSnappedCondition(_sim.SnapWrench5, _sim.wrench)
                         .PlayRepeatingReminder(_sim,_sim.soundData.PlaceWrenchNut5,5f)
                         ;
                     break;
 
-                case InternalStep.RotateWrenchAnimation5:
-                    _sim.StepIndexToComplete = 20;
-                    TriggerButtonPressedForWrinch();         
-                    _stepChain
-                        .PlayCoach(_sim.soundData.PressTriggerLoseTheNut5)
-                        .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerLoseTheNut5, 5f)
-                        ;
-                    break;
-
                 case InternalStep.RemoveNut5:
-                    _sim.lugNut5.DroppedEvent += LugNut5_DroppedEvent;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed4;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased4;
+                    _sim.lugNut5.DroppedEvent += LugNut1_DroppedEvent;
                     _stepChain
                         .EnableObject(_sim.lugNut5)
                         .DisableObject(_sim.tyerAttachlugNut5)
-                        .DisableObject(_sim.SnapWrench5);
-                    _stepChain
+                        .DisableObject(_sim.SnapWrench5)
                         .PlayCoach(_sim.soundData.RemoveNut5)
                         .HighlightObject(_sim.lugNut5)
                         .MakeGrabbable(_sim.lugNut5)                   
@@ -402,14 +369,14 @@ namespace SVR.Workflow
                     ;
                     break;
 
-                case InternalStep.PlaceNut5OnTable:
-                    _sim.lugNut5.DroppedEvent -= LugNut1_DroppedEvent;
+                case InternalStep.PlaceNut5OnTable:                   
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceNutOnTable)
                         .HighlightObject(_sim.tabelPlane)
                         .AddTableTriggerCondition(_sim.tabelTrigger, _sim.lugNut5)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PlaceNutOnTable, 5f)
                             ;
+                    _sim.lugNut5.DroppedEvent += LugNut5_DroppedEvent;
                     break;
 
                 case InternalStep.PlaceWrenchOnTable:
@@ -561,104 +528,78 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.WrenchPlaceOnNut1:
-                    _stepChain
-                        .PlayCoach(_sim.soundData.PlaceWrenchNut1)
-                        .EnableObject(_sim.SnapWrench)
-                        .AddSnappedCondition(_sim.SnapWrench, _sim.wrench)                        
-                        .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut1, 5f)
-                        ;
-                    break;
-
-                case InternalStep.WrenchAnimationTrigger1:
-                    _sim.StepIndexToComplete = 40;
+                    _sim.StepIndexToComplete = 34;
                     TriggerButtonPressedForWrinch();
                     _stepChain
-                       .PlayCoach(_sim.soundData.PressTriggerTightTheNut1)
-                       .PlayRepeatingReminder(_sim,_sim.soundData.PressTriggerTightTheNut1,5f)
-                       ;
+                        .PlayCoach(_sim.soundData.PressTriggerTightTheNut1)
+                        .EnableObject(_sim.SnapWrench)                      
+                        .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut1, 5f)
+                        ;
                     break;
 
                 case InternalStep.WrenchPlaceOnNut2:
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed1;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased;
+                    _sim.StepIndexToComplete = 35;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed += VrtkController_TriggerPressed;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased += VrtkController_TriggerReleased1;
                     _stepChain
                         .DisableObject(_sim.SnapWrench);
                     _stepChain
-                        .PlayCoach(_sim.soundData.PlaceWrenchNut2)
-                        .EnableObject(_sim.SnapWrench2)
-                        .AddSnappedCondition(_sim.SnapWrench2, _sim.wrench)                      
-                        .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut2, 5f)
+                        .PlayCoach(_sim.soundData.PressTriggerTightTheNut2)
+                        .EnableObject(_sim.SnapWrench2)                    
+                        .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut2, 5f)
                         ;
-                    break;
-
-                case InternalStep.WrenchAnimationTrigger2:
-                    _sim.StepIndexToComplete = 42;
-                    TriggerButtonPressedForWrinch();
-                    _stepChain
-                       .PlayCoach(_sim.soundData.PressTriggerTightTheNut2)
-                       .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut2, 5f)
-                       ;
                     break;
 
                 case InternalStep.WrenchPlaceOnNut3:
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased1;
+                    _sim.StepIndexToComplete = 36;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed += VrtkController_TriggerPressed2;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased += VrtkController_TriggerReleased2;
                     _stepChain
                         .DisableObject(_sim.SnapWrench2);
                     _stepChain
-                        .PlayCoach(_sim.soundData.PlaceWrenchNut3)
-                        .EnableObject(_sim.SnapWrench3)
-                        .AddSnappedCondition(_sim.SnapWrench3, _sim.wrench)                        
-                        .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut3, 5f)
+                        .PlayCoach(_sim.soundData.PressTriggerTightTheNut3)
+                        .EnableObject(_sim.SnapWrench3)                       
+                        .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut3, 5f)
                         ;
-                    break;
-
-                case InternalStep.WrenchAnimationTrigger3:
-                    _sim.StepIndexToComplete = 44;
-                    TriggerButtonPressedForWrinch();
-                    _stepChain
-                       .PlayCoach(_sim.soundData.PressTriggerTightTheNut3)
-                       .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut3, 5f)
-                       ;
                     break;
 
                 case InternalStep.WrenchPlaceOnNut4:
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed2;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased2;
+                    _sim.StepIndexToComplete = 37;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed += VrtkController_TriggerPressed3;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased += VrtkController_TriggerReleased3;
                     _stepChain
                         .DisableObject(_sim.SnapWrench3);
                     _stepChain
-                        .PlayCoach(_sim.soundData.PlaceWrenchNut4)
-                        .EnableObject(_sim.SnapWrench4)
-                        .AddSnappedCondition(_sim.SnapWrench4, _sim.wrench)                        
-                        .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut4, 5f)
+                        .PlayCoach(_sim.soundData.PressTriggerTightTheNut4)
+                        .EnableObject(_sim.SnapWrench4)                       
+                        .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut4, 5f)
                         ;
                     break;
 
-                case InternalStep.WrenchAnimationTrigger4:
-                    _sim.StepIndexToComplete = 46;
-                    TriggerButtonPressedForWrinch();
-                    _stepChain
-                       .PlayCoach(_sim.soundData.PressTriggerTightTheNut4)
-                       .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut4, 5f)
-                       ;
-                    break;
-
                 case InternalStep.WrenchPlaceOnNut5:
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed3;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased3;
+                    _sim.StepIndexToComplete = 38;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed += VrtkController_TriggerPressed4;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased += VrtkController_TriggerReleased4;
                     _stepChain
                        .DisableObject(_sim.SnapWrench4);
                     _stepChain
-                       .PlayCoach(_sim.soundData.PlaceWrenchNut5)
-                       .EnableObject(_sim.SnapWrench5)
-                       .AddSnappedCondition(_sim.SnapWrench5, _sim.wrench)                       
-                       .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut5, 5f)
-                       ;
-                    break;
-
-                case InternalStep.WrenchAnimationTrigger5:
-                    _sim.StepIndexToComplete = 48;
-                    TriggerButtonPressedForWrinch();
-                    _stepChain
                        .PlayCoach(_sim.soundData.PressTriggerTightTheNut5)
+                       .EnableObject(_sim.SnapWrench5)                     
                        .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut5, 5f)
                        ;
                     break;
 
                 case InternalStep.PlaceWrenchOnTabel:
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed4;
+                    _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased4;
                     _stepChain
                         .DisableObject(_sim.SnapWrench5);
                     _stepChain
@@ -697,14 +638,104 @@ namespace SVR.Workflow
             }
         }
 
+        private void LugNut1_DroppedEvent1(global::Interactable.BaseItem obj)
+        {
+            obj.SetOriginalParent(_sim._extraCoachPositions[0]);
+        }
+
+        private void VrtkController_TriggerReleased4(object sender, ControllerInteractionEventArgs e)
+        {
+            Debug.Log("Trigger release");
+            _sim.RotationNutAnim.enabled = false;
+            _sim.WrinchAudioSource.Stop();
+
+        }
+
+        private void VrtkController_TriggerPressed4(object sender, ControllerInteractionEventArgs e)
+        {
+            if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench5.IsSnapped)
+            {
+                _sim.RotationNutAnim.enabled = true;
+                _sim.WrinchAudioSource.Play();
+                AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+            }
+        }
+
+        private void VrtkController_TriggerReleased3(object sender, ControllerInteractionEventArgs e)
+        {
+            Debug.Log("Trigger release");
+            _sim.RotationNutAnim.enabled = false;
+            _sim.WrinchAudioSource.Stop();
+
+        }
+
+        private void VrtkController_TriggerPressed3(object sender, ControllerInteractionEventArgs e)
+        {
+            if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench4.IsSnapped)
+            {
+                _sim.RotationNutAnim.enabled = true;
+                _sim.WrinchAudioSource.Play();
+                AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+            }
+        }
+
+        private void VrtkController_TriggerPressed2(object sender, ControllerInteractionEventArgs e)
+        {
+            if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench3.IsSnapped)
+            {
+                _sim.RotationNutAnim.enabled = true;
+                _sim.WrinchAudioSource.Play();
+                AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+            }
+        }
+
+        private void VrtkController_TriggerReleased2(object sender, ControllerInteractionEventArgs e)
+        {
+            Debug.Log("Trigger release");
+            _sim.RotationNutAnim.enabled = false;
+            _sim.WrinchAudioSource.Stop();
+
+        }
+
+        private void VrtkController_TriggerReleased1(object sender, ControllerInteractionEventArgs e)
+        {
+            Debug.Log("Trigger release");
+            _sim.RotationNutAnim.enabled = false;
+            _sim.WrinchAudioSource.Stop();
+        }
+
+        private void VrtkController_TriggerPressed(object sender, ControllerInteractionEventArgs e)
+        {
+            if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench2.IsSnapped)
+            {
+                _sim.RotationNutAnim.enabled = true;
+                _sim.WrinchAudioSource.Play();
+                AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+            }
+        }
+
         private void LugNut5_DroppedEvent(global::Interactable.BaseItem obj)
         {
-            obj.transform.SetParent(null);
+            obj.SetOriginalParent(_sim._extraCoachPositions[4]);           
+        }
+        private void LugNut4_DroppedEvent(global::Interactable.BaseItem obj)
+        {
+            obj.SetOriginalParent(_sim._extraCoachPositions[3]);           
+        }
+
+        private void LugNut3_DroppedEvent(global::Interactable.BaseItem obj)
+        {
+            obj.SetOriginalParent(_sim._extraCoachPositions[2]);         
+        }
+
+        private void LugNut2_DroppedEvent(global::Interactable.BaseItem obj)
+        {
+            obj.SetOriginalParent(_sim._extraCoachPositions[1]);            
         }
 
         private void LugNut1_DroppedEvent(global::Interactable.BaseItem obj)
         {
-            obj.transform.SetParent(null);           
+            obj.transform.SetParent(null);
         }
 
         private void VrtkController_TriggerReleased(object sender, ControllerInteractionEventArgs e)
@@ -712,6 +743,7 @@ namespace SVR.Workflow
             Debug.Log("Trigger release");
             _sim.RotationNutAnim.enabled = false;
             _sim.WrinchAudioSource.Stop();
+
         }
         public void TriggerButtonPressedForWrinch()
         {
@@ -725,13 +757,11 @@ namespace SVR.Workflow
         {
             Debug.Log("Trigger pressed");
             
-            if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench.IsSnapped || _sim.SnapWrench2.IsSnapped || _sim.SnapWrench3.IsSnapped || _sim.SnapWrench4.IsSnapped || _sim.SnapWrench5.IsSnapped)
+            if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench.IsSnapped)
             {
                 _sim.RotationNutAnim.enabled = true;
                 _sim.WrinchAudioSource.Play();
-                AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
-                _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed1;
-                _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased;
+                AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);              
             }
         }
         public override void Update()
@@ -795,16 +825,6 @@ namespace SVR.Workflow
                         ;
                     break;
 
-                case InternalStep.RotateWrenchAnimation1:
-                    _stepChain
-                        .Wait(1)
-                        .EnableObject(_sim.lugNut1)
-                        .DisableObject(_sim.tyerAttachlugNut1)
-                        .DisableObject(_sim.SnapWrench)
-                        .PlayCoach(_sim.soundData.SfxConfirm)
-                        ;
-                    break;
-
                 case InternalStep.RemoveNut1:
                     _stepChain                  
                         .UnhighlightObject(_sim.lugNut1)
@@ -823,13 +843,6 @@ namespace SVR.Workflow
 
                 case InternalStep.PlaceWrenchNut2:
                     _stepChain
-                        .PlayCoach(_sim.soundData.SfxConfirm)
-                        ;
-                    break;
-
-                case InternalStep.RotateWrenchAnimation2:
-                    _stepChain
-                        .Wait(1)
                         .PlayCoach(_sim.soundData.SfxConfirm)
                         ;
                     break;
@@ -857,13 +870,6 @@ namespace SVR.Workflow
                         ;
                     break;
 
-                case InternalStep.RotateWrenchAnimation3:
-                    _stepChain
-                        .Wait(1)
-                        .PlayCoach(_sim.soundData.SfxConfirm)
-                        ;
-                    break;
-
                 case InternalStep.RemoveNut3:
                     _stepChain
                         .UnhighlightObject(_sim.lugNut3)
@@ -881,13 +887,6 @@ namespace SVR.Workflow
 
                 case InternalStep.PlaceWrenchNut4:
                     _stepChain
-                        .PlayCoach(_sim.soundData.SfxConfirm)
-                        ;
-                    break;
-
-                case InternalStep.RotateWrenchAnimation4:
-                    _stepChain
-                        .Wait(1)
                         .PlayCoach(_sim.soundData.SfxConfirm)
                         ;
                     break;
@@ -910,13 +909,6 @@ namespace SVR.Workflow
 
                 case InternalStep.PlaceWrenchNut5:
                     _stepChain
-                        .PlayCoach(_sim.soundData.SfxConfirm)
-                        ;
-                    break;
-
-                case InternalStep.RotateWrenchAnimation5:
-                    _stepChain
-                        .Wait(1)
                         .PlayCoach(_sim.soundData.SfxConfirm)
                         ;
                     break;
@@ -979,7 +971,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.NowGrabLugNut1:
-                    _sim.lugNut1.SetOriginalParent(_sim._extraCoachPositions[0]);
+                   // _sim.lugNut1.SetOriginalParent(_sim._extraCoachPositions[0]);
                     _stepChain
                        .UnhighlightObject(_sim.lugNut1)
                        .PlayCoach(_sim.soundData.SfxConfirm)
@@ -997,7 +989,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.NowGrabLugNut2:
-                    _sim.lugNut2.SetOriginalParent(_sim._extraCoachPositions[1]);
+                  //  _sim.lugNut2.SetOriginalParent(_sim._extraCoachPositions[1]);
                     _stepChain
                        .UnhighlightObject(_sim.lugNut2)
                        .PlayCoach(_sim.soundData.SfxConfirm)
@@ -1015,7 +1007,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.NowGrabLugNut3:
-                    _sim.lugNut3.SetOriginalParent(_sim._extraCoachPositions[2]);
+                  //  _sim.lugNut3.SetOriginalParent(_sim._extraCoachPositions[2]);
                     _stepChain
                        .UnhighlightObject(_sim.lugNut3)
                        .PlayCoach(_sim.soundData.SfxConfirm)
@@ -1033,7 +1025,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.NowGrabLugNut4:
-                    _sim.lugNut4.SetOriginalParent(_sim._extraCoachPositions[3]);
+                 //   _sim.lugNut4.SetOriginalParent(_sim._extraCoachPositions[3]);
                     _stepChain
                       .UnhighlightObject(_sim.lugNut4)
                       .PlayCoach(_sim.soundData.SfxConfirm)
@@ -1051,7 +1043,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.NowGrabLugNut5:
-                    _sim.lugNut5.SetOriginalParent(_sim._extraCoachPositions[4]);
+                  //  _sim.lugNut5.SetOriginalParent(_sim._extraCoachPositions[4]);
                     _stepChain
                       .UnhighlightObject(_sim.lugNut5)
                       .PlayCoach(_sim.soundData.SfxConfirm)
@@ -1069,8 +1061,8 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.GrabWrenchAgain:
-                    _stepChain.
-                        UnhighlightObject(_sim.wrench)
+                    _stepChain
+                        .UnhighlightObject(_sim.wrench)
                         .PlayCoach(_sim.soundData.SfxConfirm)
                         ;
                     break;
@@ -1081,24 +1073,10 @@ namespace SVR.Workflow
                        ;
                     break;
 
-                case InternalStep.WrenchAnimationTrigger1:
-                    _stepChain
-                        .Wait(1)
-                        .PlayCoach(_sim.soundData.SfxConfirm)
-                        ;
-                    break;
-
                 case InternalStep.WrenchPlaceOnNut2:
                     _stepChain
                        .PlayCoach(_sim.soundData.SfxConfirm)
                        ;
-                    break;
-
-                case InternalStep.WrenchAnimationTrigger2:
-                    _stepChain
-                        .Wait(1)
-                        .PlayCoach(_sim.soundData.SfxConfirm)
-                        ;
                     break;
 
                 case InternalStep.WrenchPlaceOnNut3:
@@ -1107,37 +1085,16 @@ namespace SVR.Workflow
                        ;
                     break;
 
-                case InternalStep.WrenchAnimationTrigger3:
-                    _stepChain
-                        .Wait(1)
-                        .PlayCoach(_sim.soundData.SfxConfirm)
-                        ;
-                    break;
-
                 case InternalStep.WrenchPlaceOnNut4:
                     _stepChain
                        .PlayCoach(_sim.soundData.SfxConfirm)
                        ;
                     break;
 
-                case InternalStep.WrenchAnimationTrigger4:
-                    _stepChain
-                        .Wait(1)
-                        .PlayCoach(_sim.soundData.SfxConfirm)
-                        ;
-                    break;
-
                 case InternalStep.WrenchPlaceOnNut5:
                     _stepChain
                        .PlayCoach(_sim.soundData.SfxConfirm)
                        ;
-                    break;
-
-                case InternalStep.WrenchAnimationTrigger5:
-                    _stepChain
-                        .Wait(1)
-                        .PlayCoach(_sim.soundData.SfxConfirm)
-                        ;
                     break;
 
                 case InternalStep.PlaceWrenchOnTabel:

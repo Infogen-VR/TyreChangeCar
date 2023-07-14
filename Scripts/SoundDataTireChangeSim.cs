@@ -29,26 +29,6 @@ public class SoundDataTireChangeSim : ScriptableObject
     public AudioClip PlaceWrenchNut1 => _placeWrenchNut1;
 
     [SerializeField]
-    private AudioClip _PressTriggerLoseTheNut1;
-    public AudioClip PressTriggerLoseTheNut1 => _PressTriggerLoseTheNut1;
-
-    [SerializeField]
-    private AudioClip _PressTriggerLoseTheNut2;
-    public AudioClip PressTriggerLoseTheNut2 => _PressTriggerLoseTheNut2;
-
-    [SerializeField]
-    private AudioClip _PressTriggerLoseTheNut3;
-    public AudioClip PressTriggerLoseTheNut3 => _PressTriggerLoseTheNut3;
-
-    [SerializeField]
-    private AudioClip _PressTriggerLoseTheNut4;
-    public AudioClip PressTriggerLoseTheNut4 => _PressTriggerLoseTheNut4;
-
-    [SerializeField]
-    private AudioClip _PressTriggerLoseTheNut5;
-    public AudioClip PressTriggerLoseTheNut5 => _PressTriggerLoseTheNut5;
-
-    [SerializeField]
     private AudioClip _placeWrenchNut2;
     public AudioClip PlaceWrenchNut2 => _placeWrenchNut2;
 

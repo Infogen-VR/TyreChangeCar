@@ -1471,8 +1471,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attachOrigin: {fileID: 0}
-  _attachRange: 0.21
-  _detachRange: 0.25
+  _attachRange: 0.12
+  _detachRange: 0.14
   _snapDuration: 0.25
   _unsnapDuration: 0.125
   _handAnim: 0
@@ -2448,7 +2448,7 @@ PrefabInstance:
     - target: {fileID: 1460810090262190294, guid: 060c2cf8384fd1547a2dd3a180865407,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1460810090262190294, guid: 060c2cf8384fd1547a2dd3a180865407,
         type: 3}
@@ -3985,8 +3985,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attachOrigin: {fileID: 0}
-  _attachRange: 0.21
-  _detachRange: 0.25
+  _attachRange: 0.12
+  _detachRange: 0.14
   _snapDuration: 0.25
   _unsnapDuration: 0.125
   _handAnim: 0
@@ -4833,8 +4833,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attachOrigin: {fileID: 0}
-  _attachRange: 0.21
-  _detachRange: 0.25
+  _attachRange: 0.12
+  _detachRange: 0.14
   _snapDuration: 0.25
   _unsnapDuration: 0.125
   _handAnim: 0
@@ -6398,7 +6398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1125084829}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5.634, y: 0.8567, z: 6.5554}
+  m_LocalPosition: {x: -5.5618, y: 0.8048, z: 6.5935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3469460462440930386}
@@ -6428,7 +6428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126036908}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5.5428, y: 0.8567, z: 6.5935}
+  m_LocalPosition: {x: -5.5355, y: 0.8048, z: 6.6662}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3469460462440930386}
@@ -8175,7 +8175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538830958}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5.5828, y: 0.8567, z: 6.5482}
+  m_LocalPosition: {x: -5.7088, y: 0.8048, z: 6.5935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3469460462440930386}
@@ -8526,7 +8526,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591015867}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5.6038, y: 0.8567, z: 6.5935}
+  m_LocalPosition: {x: -5.634, y: 0.8048, z: 6.6596}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3469460462440930386}
@@ -8636,7 +8636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626931334}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -4.082, y: 0.026, z: 5.012}
+  m_LocalPosition: {x: -4.18, y: 0.026, z: 5.012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5663320268846050749}
@@ -9431,8 +9431,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attachOrigin: {fileID: 0}
-  _attachRange: 0.21
-  _detachRange: 0.25
+  _attachRange: 0.12
+  _detachRange: 0.14
   _snapDuration: 0.25
   _unsnapDuration: 0.125
   _handAnim: 0
@@ -9764,7 +9764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1874917280}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5.634, y: 0.8567, z: 6.5935}
+  m_LocalPosition: {x: -5.634, y: 0.8048, z: 6.5935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3469460462440930386}
@@ -15060,7 +15060,6 @@ GameObject:
   - component: {fileID: 2356133247338389587}
   - component: {fileID: 1296947401865102683}
   - component: {fileID: 449252035630208853}
-  - component: {fileID: 865686954000656191}
   m_Layer: 0
   m_Name: ToolsDrawer_01
   m_TagString: Untagged
@@ -15068,20 +15067,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &865686954000656191
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 865686954000656190}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1609303286585914623, guid: 3de5a559b723e4d4a9e4eb536bb203ae, type: 3}
 --- !u!114 &878534520996302685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18296,7 +18281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3495572991851378206}
   m_LocalRotation: {x: 0.70710677, y: -0.000000029802326, z: -0.000000029802326, w: -0.70710677}
-  m_LocalPosition: {x: -3.302, y: 0.165, z: 8.484}
+  m_LocalPosition: {x: -3.302, y: 0.185, z: 8.484}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 605606486}
@@ -37634,7 +37619,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410104232943711614}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4415526, y: 1.279456, z: 6.6120324}
+  m_LocalPosition: {x: -2.4415529, y: 1.279456, z: 6.6120324}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2119307445531414492}
@@ -45528,8 +45513,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8043198061084207038}
-  m_LocalRotation: {x: -0.51745075, y: 0.5390759, z: 0.4700898, w: 0.46974206}
-  m_LocalPosition: {x: -5.85, y: 0.8198, z: 6.675}
+  m_LocalRotation: {x: -0.49201918, y: 0.5136327, z: 0.4966455, w: 0.4974353}
+  m_LocalPosition: {x: -5.849, y: 0.831, z: 6.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8594732043505179932}
@@ -45538,7 +45523,7 @@ Transform:
   - {fileID: 3550668166755140592}
   m_Father: {fileID: 3469460462440930386}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -96.799995, y: -9.703003, z: 100.964}
+  m_LocalEulerAnglesHint: {x: -91.44499, y: -62.087006, z: 153.281}
 --- !u!33 &4733905585594579358
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -48364,8 +48349,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attachOrigin: {fileID: 0}
-  _attachRange: 0.21
-  _detachRange: 0.25
+  _attachRange: 0.12
+  _detachRange: 0.14
   _snapDuration: 0.25
   _unsnapDuration: 0.125
   _handAnim: 0
