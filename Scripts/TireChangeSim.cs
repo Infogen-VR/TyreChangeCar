@@ -65,6 +65,7 @@ public class TireChangeSim : CustomSim
     [Header("Tire variables")]
 
     public CustomSnapDropZone oldTireDropZone;
+    public GameObject oldTireDrop;
     public CustomSnapDropZone newTireDropZone;
 
     public BaseItem tireDamaged;

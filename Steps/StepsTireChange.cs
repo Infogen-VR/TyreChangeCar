@@ -212,9 +212,9 @@ namespace SVR.Workflow
                      .EnableObject(_sim.lugNut1)
                         .DisableObject(_sim.tyerAttachlugNut1)
                         .DisableObject(_sim.SnapWrench);
-                    _stepChain                       
-                        .PlayCoach(_sim.soundData.RemoveNut1)                       
+                    _stepChain
                         .HighlightObject(_sim.lugNut1)
+                        .PlayCoach(_sim.soundData.RemoveNut1)
                         .MakeGrabbable(_sim.lugNut1)
                         .AddGrabCondition(_sim.lugNut1)
                         .PlayRepeatingReminder(_sim,_sim.soundData.RemoveNut1,5f)
@@ -250,8 +250,8 @@ namespace SVR.Workflow
                         .EnableObject(_sim.lugNut2)
                         .DisableObject(_sim.tyerAttachlugNut2)
                         .DisableObject(_sim.SnapWrench2)
-                        .PlayCoach(_sim.soundData.RemoveNut2)
                         .HighlightObject(_sim.lugNut2)
+                        .PlayCoach(_sim.soundData.RemoveNut2)                        
                         .MakeGrabbable(_sim.lugNut2)
                         .AddGrabCondition(_sim.lugNut2)
                         .PlayRepeatingReminder(_sim,_sim.soundData.RemoveNut2,5f)
@@ -287,8 +287,8 @@ namespace SVR.Workflow
                         .EnableObject(_sim.lugNut3)
                         .DisableObject(_sim.tyerAttachlugNut3)
                         .DisableObject(_sim.SnapWrench3)
-                        .PlayCoach(_sim.soundData.RemoveNut3)
                         .HighlightObject(_sim.lugNut3)
+                        .PlayCoach(_sim.soundData.RemoveNut3)                        
                         .MakeGrabbable(_sim.lugNut3)                       
                         .AddGrabCondition(_sim.lugNut3)
                         .PlayRepeatingReminder(_sim, _sim.soundData.RemoveNut3, 5f)                        
@@ -324,8 +324,8 @@ namespace SVR.Workflow
                         .EnableObject(_sim.lugNut4)
                         .DisableObject(_sim.tyerAttachlugNut4)
                         .DisableObject(_sim.SnapWrench4)
-                        .PlayCoach(_sim.soundData.RemoveNut4)
                         .HighlightObject(_sim.lugNut4)
+                        .PlayCoach(_sim.soundData.RemoveNut4)                       
                         .MakeGrabbable(_sim.lugNut4)              
                         .AddGrabCondition(_sim.lugNut4)
                         .PlayRepeatingReminder(_sim, _sim.soundData.RemoveNut4, 5f)
@@ -361,8 +361,8 @@ namespace SVR.Workflow
                         .EnableObject(_sim.lugNut5)
                         .DisableObject(_sim.tyerAttachlugNut5)
                         .DisableObject(_sim.SnapWrench5)
-                        .PlayCoach(_sim.soundData.RemoveNut5)
                         .HighlightObject(_sim.lugNut5)
+                        .PlayCoach(_sim.soundData.RemoveNut5)                        
                         .MakeGrabbable(_sim.lugNut5)                   
                         .AddGrabCondition(_sim.lugNut5)                     
                         .PlayRepeatingReminder(_sim, _sim.soundData.RemoveNut5, 5f)
@@ -643,75 +643,184 @@ namespace SVR.Workflow
             obj.SetOriginalParent(_sim._extraCoachPositions[0]);
         }
 
+        private bool isTriggerPressed5;
+        private float triggerPressTime5;
         private void VrtkController_TriggerReleased4(object sender, ControllerInteractionEventArgs e)
         {
+            /* Debug.Log("Trigger release");
+             _sim.RotationNutAnim.enabled = false;
+             _sim.WrinchAudioSource.Stop();*/
             Debug.Log("Trigger release");
-            _sim.RotationNutAnim.enabled = false;
-            _sim.WrinchAudioSource.Stop();
 
+            if (isTriggerPressed5)
+            {
+                if (Time.time - triggerPressTime5 >= 1f)
+                {
+                    // Trigger held for 3 seconds, perform action
+                    if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench5.IsSnapped)
+                    {
+                        AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+                    }
+                }
+
+                // Reset trigger press time and stop animation and audio
+                isTriggerPressed5 = false;
+                triggerPressTime5 = 0f;
+                _sim.RotationNutAnim.enabled = false;
+                _sim.WrinchAudioSource.Stop();
+            }
         }
-
         private void VrtkController_TriggerPressed4(object sender, ControllerInteractionEventArgs e)
         {
-            if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench5.IsSnapped)
+            /*if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench5.IsSnapped)
             {
                 _sim.RotationNutAnim.enabled = true;
                 _sim.WrinchAudioSource.Play();
                 AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+            }*/
+            if (!isTriggerPressed5)
+            {
+                isTriggerPressed5 = true;
+                triggerPressTime5 = Time.time;
+                _sim.RotationNutAnim.enabled = true;
+                _sim.WrinchAudioSource.Play();
             }
         }
 
+        private bool isTriggerPressed4;
+        private float triggerPressTime4;
         private void VrtkController_TriggerReleased3(object sender, ControllerInteractionEventArgs e)
         {
+            /* Debug.Log("Trigger release");
+             _sim.RotationNutAnim.enabled = false;
+             _sim.WrinchAudioSource.Stop();*/
             Debug.Log("Trigger release");
-            _sim.RotationNutAnim.enabled = false;
-            _sim.WrinchAudioSource.Stop();
 
+            if (isTriggerPressed4)
+            {
+                if (Time.time - triggerPressTime4 >= 1f)
+                {
+                    // Trigger held for 3 seconds, perform action
+                    if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench4.IsSnapped)
+                    {
+                        AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+                    }
+                }
+
+                // Reset trigger press time and stop animation and audio
+                isTriggerPressed4 = false;
+                triggerPressTime4 = 0f;
+                _sim.RotationNutAnim.enabled = false;
+                _sim.WrinchAudioSource.Stop();
+            }
         }
-
         private void VrtkController_TriggerPressed3(object sender, ControllerInteractionEventArgs e)
         {
-            if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench4.IsSnapped)
+            /* if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench4.IsSnapped)
+             {
+                 _sim.RotationNutAnim.enabled = true;
+                 _sim.WrinchAudioSource.Play();
+                 AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+             }*/
+            if (!isTriggerPressed4)
             {
+                isTriggerPressed4 = true;
+                triggerPressTime4 = Time.time;
                 _sim.RotationNutAnim.enabled = true;
                 _sim.WrinchAudioSource.Play();
-                AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
             }
         }
 
+
+        private bool isTriggerPressed3;
+        private float triggerPressTime3;
         private void VrtkController_TriggerPressed2(object sender, ControllerInteractionEventArgs e)
         {
-            if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench3.IsSnapped)
+            /* if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench3.IsSnapped)
+             {
+                 _sim.RotationNutAnim.enabled = true;
+                 _sim.WrinchAudioSource.Play();
+                 AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+             }*/
+            if (!isTriggerPressed3)
             {
+                isTriggerPressed3 = true;
+                triggerPressTime3 = Time.time;
                 _sim.RotationNutAnim.enabled = true;
                 _sim.WrinchAudioSource.Play();
-                AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
             }
         }
 
         private void VrtkController_TriggerReleased2(object sender, ControllerInteractionEventArgs e)
         {
+            /* Debug.Log("Trigger release");
+             _sim.RotationNutAnim.enabled = false;
+             _sim.WrinchAudioSource.Stop();*/
             Debug.Log("Trigger release");
-            _sim.RotationNutAnim.enabled = false;
-            _sim.WrinchAudioSource.Stop();
+
+            if (isTriggerPressed3)
+            {
+                if (Time.time - triggerPressTime3 >= 1f)
+                {
+                    // Trigger held for 3 seconds, perform action
+                    if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench3.IsSnapped)
+                    {
+                        AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+                    }
+                }
+
+                // Reset trigger press time and stop animation and audio
+                isTriggerPressed3 = false;
+                triggerPressTime3 = 0f;
+                _sim.RotationNutAnim.enabled = false;
+                _sim.WrinchAudioSource.Stop();
+            }
 
         }
 
+        private bool isTriggerPressed2;
+        private float triggerPressTime2;
         private void VrtkController_TriggerReleased1(object sender, ControllerInteractionEventArgs e)
         {
-            Debug.Log("Trigger release");
+            /*Debug.Log("Trigger release");
             _sim.RotationNutAnim.enabled = false;
-            _sim.WrinchAudioSource.Stop();
+            _sim.WrinchAudioSource.Stop();*/
+            Debug.Log("Trigger release");
+
+            if (isTriggerPressed2)
+            {
+                if (Time.time - triggerPressTime2 >= 1f)
+                {
+                    // Trigger held for 3 seconds, perform action
+                    if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench2.IsSnapped)
+                    {
+                        AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+                    }
+                }
+
+                // Reset trigger press time and stop animation and audio
+                isTriggerPressed2 = false;
+                triggerPressTime2 = 0f;
+                _sim.RotationNutAnim.enabled = false;
+                _sim.WrinchAudioSource.Stop();
+            }
         }
 
         private void VrtkController_TriggerPressed(object sender, ControllerInteractionEventArgs e)
         {
-            if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench2.IsSnapped)
+            if (!isTriggerPressed2)
             {
+                isTriggerPressed2 = true;
+                triggerPressTime2 = Time.time;
                 _sim.RotationNutAnim.enabled = true;
                 _sim.WrinchAudioSource.Play();
-                AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
             }
+            /* if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench2.IsSnapped)
+             {
+                 _sim.RotationNutAnim.enabled = true;
+                 _sim.WrinchAudioSource.Play();
+                 AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+             }*/
         }
 
         private void LugNut5_DroppedEvent(global::Interactable.BaseItem obj)
@@ -737,37 +846,68 @@ namespace SVR.Workflow
         {
             obj.transform.SetParent(null);
         }
-
-        private void VrtkController_TriggerReleased(object sender, ControllerInteractionEventArgs e)
-        {
-            Debug.Log("Trigger release");
-            _sim.RotationNutAnim.enabled = false;
-            _sim.WrinchAudioSource.Stop();
-
-        }
         public void TriggerButtonPressedForWrinch()
         {
-            Debug.Log("Auto " + _sim.StepIndexToComplete);           
+            Debug.Log("Auto " + _sim.StepIndexToComplete);
             _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed += VrtkController_TriggerPressed1;
             _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased += VrtkController_TriggerReleased;
-          
+
+        }
+
+        private bool isTriggerPressed;
+        private float triggerPressTime;
+        private void VrtkController_TriggerReleased(object sender, ControllerInteractionEventArgs e)
+        {
+            /* Debug.Log("Trigger release");
+             _sim.RotationNutAnim.enabled = false;
+             _sim.WrinchAudioSource.Stop();*/
+            Debug.Log("Trigger release");
+
+            if (isTriggerPressed)
+            {
+                if (Time.time - triggerPressTime >= 1f)
+                {
+                    // Trigger held for 3 seconds, perform action
+                    if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench.IsSnapped)
+                    {
+                        AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);
+                    }
+                }
+
+                // Reset trigger press time and stop animation and audio
+                isTriggerPressed = false;
+                triggerPressTime = 0f;
+                _sim.RotationNutAnim.enabled = false;
+                _sim.WrinchAudioSource.Stop();
+            }
+
         }       
 
         private void VrtkController_TriggerPressed1(object sender, ControllerInteractionEventArgs e)
         {
             Debug.Log("Trigger pressed");
-            
-            if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench.IsSnapped)
+
+            if (!isTriggerPressed)
             {
+                isTriggerPressed = true;
+                triggerPressTime = Time.time;
                 _sim.RotationNutAnim.enabled = true;
                 _sim.WrinchAudioSource.Play();
-                AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);              
             }
+
+            /* if (_sim.wrench.IsGrabbed() && _internalStepHandler.CurrentStepIndex == _sim.StepIndexToComplete && _sim.SnapWrench.IsSnapped&)
+             {              
+                 _sim.RotationNutAnim.enabled = true;
+                 _sim.WrinchAudioSource.Play();
+                 AutoCompleteOnInternalStepEnter(_sim.StepIndexToComplete);              
+             }*/
         }
+      
         public override void Update()
         {
-            base.Update();         
-            
+            base.Update();
+           
+
         }
         private void RefreshDropZonePreview(CustomSnapDropZone dropZone)
         {
@@ -947,6 +1087,8 @@ namespace SVR.Workflow
                 case InternalStep.PlaceTireOnGround:
                     _sim.tireReset.DoReset = false;
                     _stepChain
+                      .EnableObject(_sim.oldTireDrop)
+                      .DisableObject(_sim.tireDamaged)
                       .DisableObject(_sim.oldTireDropZone)
                       .MakeUngrabbable(_sim.tireDamaged)
                       .PlayCoach(_sim.soundData.SfxConfirm)
@@ -1112,6 +1254,7 @@ namespace SVR.Workflow
                         .UnhighlightObject(_sim.carUpAndDownHandel)
                         .DisableBehaviour(_sim.carUpAndDownHandel)
                         .PlayCoach(_sim.soundData.SfxConfirm)
+                        .Wait(2)
                         ;
                     break;
 
