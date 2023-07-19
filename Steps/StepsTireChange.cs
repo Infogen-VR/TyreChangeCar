@@ -666,7 +666,7 @@ namespace SVR.Workflow
         private void VrtkController_TriggerPressed4(object sender, ControllerInteractionEventArgs e)
         {
           
-            if (!isTriggerPressed5)
+            if (!isTriggerPressed5&&_sim.wrench.IsGrabbed())
             {
                 isTriggerPressed5 = true;
                 triggerPressTime5 = Time.time;
@@ -690,7 +690,7 @@ namespace SVR.Workflow
         }
         private void VrtkController_TriggerPressed3(object sender, ControllerInteractionEventArgs e)
         {         
-            if (!isTriggerPressed4)
+            if (!isTriggerPressed4&&_sim.wrench.IsGrabbed())
             {
                 isTriggerPressed4 = true;
                 triggerPressTime4 = Time.time;
@@ -704,7 +704,7 @@ namespace SVR.Workflow
         private float triggerPressTime3;
         private void VrtkController_TriggerPressed2(object sender, ControllerInteractionEventArgs e)
         {           
-            if (!isTriggerPressed3)
+            if (!isTriggerPressed3&&_sim.wrench.IsGrabbed())
             {
                 isTriggerPressed3 = true;
                 triggerPressTime3 = Time.time;
@@ -738,7 +738,7 @@ namespace SVR.Workflow
 
         private void VrtkController_TriggerPressed(object sender, ControllerInteractionEventArgs e)
         {
-            if (!isTriggerPressed2)
+            if (!isTriggerPressed2&&_sim.wrench.IsGrabbed())
             {
                 isTriggerPressed2 = true;
                 triggerPressTime2 = Time.time;
@@ -793,13 +793,15 @@ namespace SVR.Workflow
         private void VrtkController_TriggerPressed1(object sender, ControllerInteractionEventArgs e)
         {
             Debug.Log("Trigger pressed");
-            if (!isTriggerPressed)
-            {
-                isTriggerPressed = true;
-                triggerPressTime = Time.time;
-                _sim.RotationNutAnim.enabled = true;
-                _sim.WrinchAudioSource.Play();
-            }            
+           
+                if (!isTriggerPressed&&_sim.wrench.IsGrabbed())
+                {
+                    isTriggerPressed = true;
+                    triggerPressTime = Time.time;
+                    _sim.RotationNutAnim.enabled = true;
+                    _sim.WrinchAudioSource.Play();
+                }
+           
         }
       
         public override void Update()

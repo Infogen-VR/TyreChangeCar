@@ -78,7 +78,7 @@ public class TireChangeSim : CustomSim
 
     public MeshRenderer tireDamagedVisualOnly;
     public MeshRenderer tireDamagedVisualOnly2;
-    public Lightonoff TyerMaterial;
+    public MaterialChange TyerMaterial;
     public BaseItem tireReset;
 
 

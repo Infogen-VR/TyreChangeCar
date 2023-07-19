@@ -7464,7 +7464,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431917028}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.9427621, y: -1.304793, z: -0.033500858}
+  m_LocalPosition: {x: 0.61, y: -1.304793, z: -0.033500858}
   m_LocalScale: {x: 2.6378603, y: 2.10947, z: 2.6378603}
   m_Children: []
   m_Father: {fileID: 7712171072747454583}
@@ -41797,8 +41797,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &3063439920694046764
-MeshCollider:
+--- !u!65 &3063439920694046764
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -41807,10 +41807,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6082370608798541999, guid: 44b206d12d38f344eac40cf1e1511aef, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 22.326004, y: 0, z: 24.807907}
+  m_Center: {x: -1.5032495, y: 23.410715, z: 0.49010378}
 --- !u!1 &3064115389024092804
 GameObject:
   m_ObjectHideFlags: 0
@@ -46118,6 +46117,7 @@ GameObject:
   - component: {fileID: 7798105586077540561}
   - component: {fileID: 181370574271813048}
   - component: {fileID: 3841020637327154601}
+  - component: {fileID: 3841020637327154600}
   m_Layer: 0
   m_Name: Impact_Wrench_Cross_wrench_head
   m_TagString: Untagged
@@ -46125,6 +46125,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &3841020637327154600
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3841020637327154599}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.10797784, y: 0.05256038, z: 0.052560676}
+  m_Center: {x: -0.06875811, y: 0.000000013096732, z: -2.3577945e-11}
 --- !u!95 &3841020637327154601
 Animator:
   serializedVersion: 3
@@ -59047,7 +59060,6 @@ GameObject:
   - component: {fileID: 3693594441343485002}
   - component: {fileID: 61539393878359154}
   - component: {fileID: 1905426031234285792}
-  - component: {fileID: 6707424198901141260}
   m_Layer: 0
   m_Name: Impact_Wrench_Head
   m_TagString: Untagged
@@ -59055,20 +59067,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &6707424198901141260
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6707424198901141259}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8740793223269451960, guid: 64ddf88daad756b409d80b13a1abe0bc, type: 3}
 --- !u!23 &6707454888485157708
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -80039,7 +80037,7 @@ MonoBehaviour:
   tireGood: {fileID: 390200696}
   tireDamagedVisualOnly: {fileID: 1984728026683427768}
   tireDamagedVisualOnly2: {fileID: 1692154013239933546}
-  TyerMaterial: {fileID: 0}
+  TyerMaterial: {fileID: 7440837785558528872}
   tireReset: {fileID: 2928802191967743042}
   wrench: {fileID: 4794899523802103426}
   SnapWrench: {fileID: 5402603181214482820}
