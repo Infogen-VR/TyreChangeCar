@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ButtonOn : MonoBehaviour
+public class ButtonOnn : MonoBehaviour
 {
     public UnityEvent onPressGreen;
     public GameObject greenButton;

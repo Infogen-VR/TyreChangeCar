@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SVR.Workflow.TriangleFactory.Scripts.Mechanics;
 using UnityEngine;
 
-public class Lightonoff :MonoBehaviour
+public class MaterialChange : MonoBehaviour
 {
    
     public Material otherMaterial = null;

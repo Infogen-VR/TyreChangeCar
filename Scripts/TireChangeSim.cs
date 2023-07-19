@@ -7,6 +7,7 @@ using SVR.Workflow.TriangleFactory;
 using SVR.Workflow.TriangleFactory.Scripts.Mechanics;
 using SysmetisVR.V1.VRTK_extended;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VRTK;
 
 public class TireChangeSim : CustomSim
@@ -22,7 +23,8 @@ public class TireChangeSim : CustomSim
 
 
     [Header("Button On ")]
-    public Touchable buttonOn;   
+    public Touchable buttonOn;
+    public GameObject buttonOnPartical;
     public GameObject buttonOnObject; 
     public GameObject buttonOnHighlight;
     public Animator carLifter1;
@@ -33,6 +35,7 @@ public class TireChangeSim : CustomSim
 
     [Header("Button Off")]
     public Touchable buttonOff;
+    public GameObject buttonOffPartical;
     public GameObject buttonOffObject;
     public GameObject buttonOffHighlight;
 
@@ -41,6 +44,8 @@ public class TireChangeSim : CustomSim
     public Animator carUpAnimation;
     public Animator carLifterAnimatoin; 
     public CustomRotatorV2 carUpAndDownHandel;
+    public GameObject handelAnimUp;
+    public GameObject handelAnimDown;
     public Animator RotationNutAnim;
 
     [Header("Lug nut variables And TabelTrigger")]
@@ -86,7 +91,6 @@ public class TireChangeSim : CustomSim
     public ExtendedSnapAttachV2 SnapWrench4;
     public ExtendedSnapAttachV2 SnapWrench5;
 
-    public CustomSnapDropZone wrenchDropZoneTable;
     public CustomSnapDropZone nut1DropZoneTire;
     public CustomSnapDropZone nut2DropZoneTire;
     public CustomSnapDropZone nut3DropZoneTire;
@@ -113,6 +117,19 @@ public class TireChangeSim : CustomSim
         carLifter3.SetBool("a", true);
         carLifter4.SetBool("a", true);
 
+    }
+    public void sceneload()
+    {
+        // Get the current scene index
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // Reload the current scene
+        SceneManager.LoadScene(currentSceneIndex);
+    }
+
+    public void OnClickQuitButton()
+    {
+        Application.Quit();
     }
     #endregion
 }
