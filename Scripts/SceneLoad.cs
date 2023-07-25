@@ -8,7 +8,7 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 
 public class SceneLoad : MonoBehaviour
 {
-    public string SecondSceneName;
+    /*public string SecondSceneName;
 
     void Start()
     {
@@ -32,42 +32,29 @@ public class SceneLoad : MonoBehaviour
             yield return null;
         }
 
+    }*/
+    public string secondSceneAddress;
+
+    void Start()
+    {
+        // Start the loading process
+        StartCoroutine(LoadSecondSceneAndDestroyCurrentScene());
     }
-    /*  public string firstSceneAddress;
-      public string secondSceneAddress;
 
-      void Start()
-      {
-          // Start the loading process
-          StartCoroutine(LoadScenes());
-      }
+    IEnumerator LoadSecondSceneAndDestroyCurrentScene()
+    {
+        // Load the second scene asynchronously using Addressables
+        AsyncOperationHandle<SceneInstance> secondSceneHandle = Addressables.LoadSceneAsync(secondSceneAddress, LoadSceneMode.Single);
 
-      IEnumerator LoadScenes()
-      {
-          // Wait for 5 seconds
-          yield return new WaitForSeconds(5f);
+        // Wait until the second scene is fully loaded
+        while (!secondSceneHandle.IsDone)
+        {
+            yield return null;
+        }
 
-          // Load the first scene asynchronously using Addressables
-          AsyncOperationHandle<SceneInstance> firstSceneHandle = Addressables.LoadSceneAsync(firstSceneAddress, LoadSceneMode.Additive);
+        // Unload the current scene
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
 
-          // Wait until the first scene is fully loaded
-          while (!firstSceneHandle.IsDone)
-          {
-              yield return null;
-          }
-
-          // Unload the first scene
-          SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-
-          // Load the second scene asynchronously using Addressables
-          AsyncOperationHandle<SceneInstance> secondSceneHandle = Addressables.LoadSceneAsync(secondSceneAddress, LoadSceneMode.Additive);
-
-          // Wait until the second scene is fully loaded
-          while (!secondSceneHandle.IsDone)
-          {
-              yield return null;
-          }
-
-          Debug.Log("Scenes loaded successfully!");
-      }*/
+        Debug.Log("Second scene loaded and current scene destroyed successfully!");
+    }
 }

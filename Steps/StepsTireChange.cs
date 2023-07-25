@@ -145,12 +145,7 @@ namespace SVR.Workflow
         {
             Debug.Log("Entering: [MainStep]IntroductionAnimated");
 
-            //_sim.LeftController.GripPressed += ValidateGhostModel;
-            //_sim.RightController.GripPressed += ValidateGhostModel;
-            //UI.ScoreSheet.Instance.SetLevelName("Soups and Sauces");
-
             base.OnEnter(objectRefs);
-
             //Init stuff here.
             _internalStepHandler.Initialize(Enum.GetValues(typeof(InternalStep)), _conditionalCompletion);
         }
@@ -186,7 +181,7 @@ namespace SVR.Workflow
                         ;
                     break;
 
-                case InternalStep.GrabImpactWrenchFromTable:                  
+                case InternalStep.GrabImpactWrenchFromTable:
                     _stepChain
                         .PlayCoach(_sim.soundData.GrabWrenchFromTable)
                         .HighlightObject(_sim.wrench)
@@ -202,7 +197,7 @@ namespace SVR.Workflow
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceWrenchNut1)
                         .EnableObject(_sim.SnapWrench)
-                        .PlayRepeatingReminder(_sim,_sim.soundData.PlaceWrenchNut1,5f)
+                        .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut1, 5f)
                         ;
                     break;
 
@@ -219,7 +214,7 @@ namespace SVR.Workflow
                         .PlayCoach(_sim.soundData.RemoveNut1)
                         .MakeGrabbable(_sim.lugNut1)
                         .AddGrabCondition(_sim.lugNut1)
-                        .PlayRepeatingReminder(_sim,_sim.soundData.RemoveNut1,5f)
+                        .PlayRepeatingReminder(_sim, _sim.soundData.RemoveNut1, 5f)
                         ;
                     break;
 
@@ -228,7 +223,7 @@ namespace SVR.Workflow
                         .PlayCoach(_sim.soundData.PlaceNutOnTable)
                         .HighlightObject(_sim.tabelPlane)
                         .AddTableTriggerCondition(_sim.tabelTrigger, _sim.lugNut1)
-                        .PlayRepeatingReminder(_sim,_sim.soundData.PlaceNutOnTable,5f)  
+                        .PlayRepeatingReminder(_sim, _sim.soundData.PlaceNutOnTable, 5f)
                         ;
                     _sim.lugNut1.DroppedEvent += LugNut1_DroppedEvent1;
                     break;
@@ -240,7 +235,7 @@ namespace SVR.Workflow
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceWrenchNut2)
                         .EnableObject(_sim.SnapWrench2)
-                        .PlayRepeatingReminder(_sim,_sim.soundData.PlaceWrenchNut2,5f)
+                        .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut2, 5f)
                         ;
                     break;
 
@@ -248,17 +243,17 @@ namespace SVR.Workflow
                     _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed;
                     _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased1;
                     _sim.lugNut2.DroppedEvent += LugNut1_DroppedEvent;
-                    _stepChain                       
+                    _stepChain
                         .EnableObject(_sim.lugNut2)
                         .DisableObject(_sim.tyerAttachlugNut2)
                         .DisableObject(_sim.SnapWrench2)
                         .HighlightObject(_sim.lugNut2)
-                        .PlayCoach(_sim.soundData.RemoveNut2)                        
+                        .PlayCoach(_sim.soundData.RemoveNut2)
                         .MakeGrabbable(_sim.lugNut2)
                         .AddGrabCondition(_sim.lugNut2)
-                        .PlayRepeatingReminder(_sim,_sim.soundData.RemoveNut2,5f)
+                        .PlayRepeatingReminder(_sim, _sim.soundData.RemoveNut2, 5f)
                         ;
-                        break;
+                    break;
 
                 case InternalStep.PlaceNut2OnTable:
                     _stepChain
@@ -277,9 +272,9 @@ namespace SVR.Workflow
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceWrenchNut3)
                         .EnableObject(_sim.SnapWrench3)
-                        .PlayRepeatingReminder(_sim,_sim.soundData.PlaceWrenchNut3,5f)
+                        .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut3, 5f)
                         ;
-                        break;
+                    break;
 
                 case InternalStep.RemoveNut3:
                     _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed2;
@@ -290,14 +285,14 @@ namespace SVR.Workflow
                         .DisableObject(_sim.tyerAttachlugNut3)
                         .DisableObject(_sim.SnapWrench3)
                         .HighlightObject(_sim.lugNut3)
-                        .PlayCoach(_sim.soundData.RemoveNut3)                        
-                        .MakeGrabbable(_sim.lugNut3)                       
+                        .PlayCoach(_sim.soundData.RemoveNut3)
+                        .MakeGrabbable(_sim.lugNut3)
                         .AddGrabCondition(_sim.lugNut3)
-                        .PlayRepeatingReminder(_sim, _sim.soundData.RemoveNut3, 5f)                        
+                        .PlayRepeatingReminder(_sim, _sim.soundData.RemoveNut3, 5f)
                         ;
                     break;
 
-                case InternalStep.PlaceNut3OnTable:                    
+                case InternalStep.PlaceNut3OnTable:
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceNutOnTable)
                         .HighlightObject(_sim.tabelPlane)
@@ -314,7 +309,7 @@ namespace SVR.Workflow
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceWrenchNut4)
                         .EnableObject(_sim.SnapWrench4)
-                        .PlayRepeatingReminder(_sim,_sim.soundData.PlaceWrenchNut4,5f)
+                        .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut4, 5f)
                         ;
                     break;
 
@@ -327,8 +322,8 @@ namespace SVR.Workflow
                         .DisableObject(_sim.tyerAttachlugNut4)
                         .DisableObject(_sim.SnapWrench4)
                         .HighlightObject(_sim.lugNut4)
-                        .PlayCoach(_sim.soundData.RemoveNut4)                       
-                        .MakeGrabbable(_sim.lugNut4)              
+                        .PlayCoach(_sim.soundData.RemoveNut4)
+                        .MakeGrabbable(_sim.lugNut4)
                         .AddGrabCondition(_sim.lugNut4)
                         .PlayRepeatingReminder(_sim, _sim.soundData.RemoveNut4, 5f)
                         ;
@@ -351,7 +346,7 @@ namespace SVR.Workflow
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceWrenchNut5)
                         .EnableObject(_sim.SnapWrench5)
-                        .PlayRepeatingReminder(_sim,_sim.soundData.PlaceWrenchNut5,5f)
+                        .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchNut5, 5f)
                         ;
                     break;
 
@@ -364,14 +359,14 @@ namespace SVR.Workflow
                         .DisableObject(_sim.tyerAttachlugNut5)
                         .DisableObject(_sim.SnapWrench5)
                         .HighlightObject(_sim.lugNut5)
-                        .PlayCoach(_sim.soundData.RemoveNut5)                        
-                        .MakeGrabbable(_sim.lugNut5)                   
-                        .AddGrabCondition(_sim.lugNut5)                     
+                        .PlayCoach(_sim.soundData.RemoveNut5)
+                        .MakeGrabbable(_sim.lugNut5)
+                        .AddGrabCondition(_sim.lugNut5)
                         .PlayRepeatingReminder(_sim, _sim.soundData.RemoveNut5, 5f)
                     ;
                     break;
 
-                case InternalStep.PlaceNut5OnTable:                   
+                case InternalStep.PlaceNut5OnTable:
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceNutOnTable)
                         .HighlightObject(_sim.tabelPlane)
@@ -386,7 +381,7 @@ namespace SVR.Workflow
                         .PlayCoach(_sim.soundData.PlaceWrenchBack)
                         .HighlightObject(_sim.tabelPlane)
                         .AddTableTriggerCondition(_sim.tabelTrigger, _sim.wrench)
-                        .PlayRepeatingReminder(_sim,_sim.soundData.PlaceWrenchBack,5f)
+                        .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchBack, 5f)
                         ;
                     break;
 
@@ -395,10 +390,10 @@ namespace SVR.Workflow
                     _sim.tireDamagedVisualOnly2.enabled = false;
                     _stepChain
                         .EnableObject(_sim.tireDamaged)
-                        .PlayCoach(_sim.soundData.RemoveTireFromAxle)                       
+                        .PlayCoach(_sim.soundData.RemoveTireFromAxle)
                         .HighlightObject(_sim.tireDamaged.gameObject)
                         .MakeGrabbable(_sim.tireDamaged)
-                        .AddGrabCondition(_sim.tireDamaged)                        
+                        .AddGrabCondition(_sim.tireDamaged)
                         .PlayRepeatingReminder(_sim, _sim.soundData.RemoveTireFromAxle, 5f);
                     break;
 
@@ -406,7 +401,7 @@ namespace SVR.Workflow
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceTireOnGround)
                         .EnableObject(_sim.oldTireDropZone)
-                        .AddSnappedInDropZoneCondition(_sim.oldTireDropZone)                        
+                        .AddSnappedInDropZoneCondition(_sim.oldTireDropZone)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PlaceTireOnGround, 5f);
                     break;
 
@@ -415,7 +410,7 @@ namespace SVR.Workflow
                         .PlayCoach(_sim.soundData.GrabNewTire)
                         .HighlightObject(_sim.tireGood)
                         .MakeGrabbable(_sim.tireGood)
-                        .AddGrabCondition(_sim.tireGood)                        
+                        .AddGrabCondition(_sim.tireGood)
                         .PlayRepeatingReminder(_sim, _sim.soundData.GrabNewTire, 5f);
                     break;
 
@@ -423,7 +418,7 @@ namespace SVR.Workflow
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceItOnAxle)
                         .EnableObject(_sim.newTireDropZone)
-                        .AddSnappedInDropZoneCondition(_sim.newTireDropZone)                        
+                        .AddSnappedInDropZoneCondition(_sim.newTireDropZone)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PlaceItOnAxle, 5f);
                     break;
 
@@ -432,7 +427,7 @@ namespace SVR.Workflow
                         .PlayCoach(_sim.soundData.NowGrabLugNut1)
                         .HighlightObject(_sim.lugNut1)
                         .MakeGrabbable(_sim.lugNut1)
-                        .AddGrabCondition(_sim.lugNut1)                        
+                        .AddGrabCondition(_sim.lugNut1)
                         .PlayRepeatingReminder(_sim, _sim.soundData.NowGrabLugNut1, 5f);
                     break;
 
@@ -440,7 +435,7 @@ namespace SVR.Workflow
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceNutOnTire)
                         .EnableObject(_sim.nut1DropZoneTire)
-                        .AddSnappedInDropZoneCondition(_sim.nut1DropZoneTire)                        
+                        .AddSnappedInDropZoneCondition(_sim.nut1DropZoneTire)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PlaceNutOnTire, 5f);
                     break;
 
@@ -449,7 +444,7 @@ namespace SVR.Workflow
                         .PlayCoach(_sim.soundData.NowGrabLugNut2)
                         .HighlightObject(_sim.lugNut2)
                         .MakeGrabbable(_sim.lugNut2)
-                        .AddGrabCondition(_sim.lugNut2)                       
+                        .AddGrabCondition(_sim.lugNut2)
                         .PlayRepeatingReminder(_sim, _sim.soundData.NowGrabLugNut2, 5f);
                     break;
 
@@ -457,7 +452,7 @@ namespace SVR.Workflow
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceNutOnTire)
                         .EnableObject(_sim.nut2DropZoneTire)
-                        .AddSnappedInDropZoneCondition(_sim.nut2DropZoneTire)                       
+                        .AddSnappedInDropZoneCondition(_sim.nut2DropZoneTire)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PlaceNutOnTire, 5f)
                         ;
                     break;
@@ -467,7 +462,7 @@ namespace SVR.Workflow
                         .PlayCoach(_sim.soundData.NowGrabLugNut3)
                         .HighlightObject(_sim.lugNut3)
                         .MakeGrabbable(_sim.lugNut3)
-                        .AddGrabCondition(_sim.lugNut3)                        
+                        .AddGrabCondition(_sim.lugNut3)
                         .PlayRepeatingReminder(_sim, _sim.soundData.NowGrabLugNut3, 5f)
                         ;
                     break;
@@ -476,7 +471,7 @@ namespace SVR.Workflow
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceNutOnTire)
                         .EnableObject(_sim.nut3DropZoneTire)
-                        .AddSnappedInDropZoneCondition(_sim.nut3DropZoneTire)                        
+                        .AddSnappedInDropZoneCondition(_sim.nut3DropZoneTire)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PlaceNutOnTire, 5f)
                         ;
                     break;
@@ -486,7 +481,7 @@ namespace SVR.Workflow
                         .PlayCoach(_sim.soundData.NowGrabLugNut4)
                         .HighlightObject(_sim.lugNut4)
                         .MakeGrabbable(_sim.lugNut4)
-                        .AddGrabCondition(_sim.lugNut4)                        
+                        .AddGrabCondition(_sim.lugNut4)
                         .PlayRepeatingReminder(_sim, _sim.soundData.NowGrabLugNut4, 5f)
                         ;
                     break;
@@ -495,7 +490,7 @@ namespace SVR.Workflow
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceNutOnTire)
                         .EnableObject(_sim.nut4DropZoneTire)
-                        .AddSnappedInDropZoneCondition(_sim.nut4DropZoneTire)                        
+                        .AddSnappedInDropZoneCondition(_sim.nut4DropZoneTire)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PlaceNutOnTire, 5f)
                         ;
                     break;
@@ -505,7 +500,7 @@ namespace SVR.Workflow
                         .PlayCoach(_sim.soundData.NowGrabLugNut5)
                         .HighlightObject(_sim.lugNut5)
                         .MakeGrabbable(_sim.lugNut5)
-                        .AddGrabCondition(_sim.lugNut5)                        
+                        .AddGrabCondition(_sim.lugNut5)
                         .PlayRepeatingReminder(_sim, _sim.soundData.NowGrabLugNut5, 5f)
                         ;
                     break;
@@ -514,7 +509,7 @@ namespace SVR.Workflow
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceNutOnTire)
                         .EnableObject(_sim.nut5DropZoneTire)
-                        .AddSnappedInDropZoneCondition(_sim.nut5DropZoneTire)                        
+                        .AddSnappedInDropZoneCondition(_sim.nut5DropZoneTire)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PlaceNutOnTire, 5f)
                         ;
                     break;
@@ -524,7 +519,7 @@ namespace SVR.Workflow
                         .PlayCoach(_sim.soundData.GrabWrenchFromTable)
                         .HighlightObject(_sim.wrench)
                         .MakeGrabbable(_sim.wrench)
-                        .AddGrabCondition(_sim.wrench)                        
+                        .AddGrabCondition(_sim.wrench)
                         .PlayRepeatingReminder(_sim, _sim.soundData.GrabWrenchFromTable, 5f)
                         ;
                     break;
@@ -534,7 +529,7 @@ namespace SVR.Workflow
                     TriggerButtonPressedForWrinch();
                     _stepChain
                         .PlayCoach(_sim.soundData.PressTriggerTightTheNut1)
-                        .EnableObject(_sim.SnapWrench)                      
+                        .EnableObject(_sim.SnapWrench)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut1, 5f)
                         ;
                     break;
@@ -549,7 +544,7 @@ namespace SVR.Workflow
                         .DisableObject(_sim.SnapWrench);
                     _stepChain
                         .PlayCoach(_sim.soundData.PressTriggerTightTheNut2)
-                        .EnableObject(_sim.SnapWrench2)                    
+                        .EnableObject(_sim.SnapWrench2)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut2, 5f)
                         ;
                     break;
@@ -564,7 +559,7 @@ namespace SVR.Workflow
                         .DisableObject(_sim.SnapWrench2);
                     _stepChain
                         .PlayCoach(_sim.soundData.PressTriggerTightTheNut3)
-                        .EnableObject(_sim.SnapWrench3)                       
+                        .EnableObject(_sim.SnapWrench3)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut3, 5f)
                         ;
                     break;
@@ -579,7 +574,7 @@ namespace SVR.Workflow
                         .DisableObject(_sim.SnapWrench3);
                     _stepChain
                         .PlayCoach(_sim.soundData.PressTriggerTightTheNut4)
-                        .EnableObject(_sim.SnapWrench4)                       
+                        .EnableObject(_sim.SnapWrench4)
                         .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut4, 5f)
                         ;
                     break;
@@ -594,7 +589,7 @@ namespace SVR.Workflow
                        .DisableObject(_sim.SnapWrench4);
                     _stepChain
                        .PlayCoach(_sim.soundData.PressTriggerTightTheNut5)
-                       .EnableObject(_sim.SnapWrench5)                     
+                       .EnableObject(_sim.SnapWrench5)
                        .PlayRepeatingReminder(_sim, _sim.soundData.PressTriggerTightTheNut5, 5f)
                        ;
                     break;
@@ -602,14 +597,14 @@ namespace SVR.Workflow
                 case InternalStep.PlaceWrenchOnTabel:
                     _sim.SceneSession.CustomAvatarR.VrtkController.TriggerPressed -= VrtkController_TriggerPressed4;
                     _sim.SceneSession.CustomAvatarR.VrtkController.TriggerReleased -= VrtkController_TriggerReleased4;
-                    
+
                     _stepChain
                         .DisableObject(_sim.SnapWrench5);
                     _stepChain
                         .PlayCoach(_sim.soundData.PlaceWrenchBack)
                         .HighlightObject(_sim.tabelPlane)
-                        .AddTableTriggerCondition(_sim.tabelTrigger,_sim.wrench)
-                        .PlayRepeatingReminder(_sim,_sim.soundData.PlaceWrenchBack,5f)
+                        .AddTableTriggerCondition(_sim.tabelTrigger, _sim.wrench)
+                        .PlayRepeatingReminder(_sim, _sim.soundData.PlaceWrenchBack, 5f)
                         ;
                     break;
 
@@ -636,9 +631,8 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.Congrats:
-                    _stepChain
-                        .PlayCoach(_sim.soundData.Congrats)
-                        ;
+                    _sim.CarStartAnim()                        
+                        ;                   
                     break;
             }
         }
@@ -940,7 +934,7 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.RemoveNut1:
-                    _stepChain                  
+                    _stepChain
                         .UnhighlightObject(_sim.lugNut1)
                         .PlayCoach(_sim.soundData.SfxConfirm)
                         ;
@@ -965,7 +959,7 @@ namespace SVR.Workflow
                     Debug.Log("Complete");
                     _stepChain
                         .UnhighlightObject(_sim.lugNut2)
-                        .PlayCoach(_sim.soundData.SfxConfirm)                        
+                        .PlayCoach(_sim.soundData.SfxConfirm)
                         ;
                     break;
 
@@ -1087,7 +1081,6 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.NowGrabLugNut1:
-                   // _sim.lugNut1.SetOriginalParent(_sim._extraCoachPositions[0]);
                     _stepChain
                        .UnhighlightObject(_sim.lugNut1)
                        .PlayCoach(_sim.soundData.SfxConfirm)
@@ -1105,7 +1098,6 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.NowGrabLugNut2:
-                  //  _sim.lugNut2.SetOriginalParent(_sim._extraCoachPositions[1]);
                     _stepChain
                        .UnhighlightObject(_sim.lugNut2)
                        .PlayCoach(_sim.soundData.SfxConfirm)
@@ -1123,7 +1115,6 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.NowGrabLugNut3:
-                  //  _sim.lugNut3.SetOriginalParent(_sim._extraCoachPositions[2]);
                     _stepChain
                        .UnhighlightObject(_sim.lugNut3)
                        .PlayCoach(_sim.soundData.SfxConfirm)
@@ -1141,7 +1132,6 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.NowGrabLugNut4:
-                 //   _sim.lugNut4.SetOriginalParent(_sim._extraCoachPositions[3]);
                     _stepChain
                       .UnhighlightObject(_sim.lugNut4)
                       .PlayCoach(_sim.soundData.SfxConfirm)
@@ -1159,7 +1149,6 @@ namespace SVR.Workflow
                     break;
 
                 case InternalStep.NowGrabLugNut5:
-                  //  _sim.lugNut5.SetOriginalParent(_sim._extraCoachPositions[4]);
                     _stepChain
                       .UnhighlightObject(_sim.lugNut5)
                       .PlayCoach(_sim.soundData.SfxConfirm)
@@ -1239,8 +1228,11 @@ namespace SVR.Workflow
                         .DisableObject(_sim.buttonOffPartical)
                         .DisableObject(_sim.buttonOffObject)
                         .PlayCoach(_sim.soundData.SfxConfirm)
+                        .PlayCoach(_sim.soundData.Congrats)
                         ;
                     break;
+
+               
 
 
             }

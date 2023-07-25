@@ -6882,7 +6882,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8953198897232500476}
-        m_MethodName: sceneload
+        m_MethodName: ResetScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13080,6 +13080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1626931335}
   - component: {fileID: 1626931336}
+  - component: {fileID: 1626931337}
   m_Layer: 0
   m_Name: Car pivot point
   m_TagString: Untagged
@@ -13121,6 +13122,102 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!82 &1626931337
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626931334}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ad52cc07ba027d144bf42adbce62a728, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1647837643
 GameObject:
   m_ObjectHideFlags: 0
@@ -17887,7 +17984,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055278519470985488}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.677249, y: 0.36832222, z: -0.15394343}
+  m_LocalPosition: {x: 1.677249, y: 0.3683222, z: -0.15394343}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8136830370156686501}
@@ -42522,15 +42619,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8869952068464106743}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0272696, y: 0.36832222, z: 1.659548}
+  m_LocalRotation: {x: -0, y: -3.6379792e-12, z: -0.22265911, w: 0.9748964}
+  m_LocalPosition: {x: -1.0272696, y: 0.3683222, z: 1.659548}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7725827920300464646}
   - {fileID: 7808633317853237954}
   m_Father: {fileID: 3118194410635640506}
   m_RootOrder: 47
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25.731}
 --- !u!1 &3200828324930168226
 GameObject:
   m_ObjectHideFlags: 0
@@ -52257,7 +52354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5225414556530166215}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.640447, y: 0.35945597, z: 1.6000323}
+  m_LocalPosition: {x: 1.640447, y: 0.359456, z: 1.6000323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2139513374490914159}
@@ -61485,15 +61582,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5560023695346982184}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0272696, y: 0.36832222, z: -0.15394343}
+  m_LocalRotation: {x: -0, y: -3.6379792e-12, z: -0.22265911, w: 0.9748964}
+  m_LocalPosition: {x: -1.0272696, y: 0.3683222, z: -0.15394343}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 393606815255686050}
   - {fileID: 738113431041120487}
   m_Father: {fileID: 3118194410635640506}
   m_RootOrder: 48
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25.731}
 --- !u!23 &7074491473400337741
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64278,13 +64375,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4953620748186181476}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.22467284, w: 0.97443426}
   m_LocalPosition: {x: 0.0000000065138646, y: -0.0000000011939464, z: 0.021086127}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4208242474243969437}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -25.967001}
 --- !u!4 &7311580622410740554
 Transform:
   m_ObjectHideFlags: 0
@@ -80018,6 +80115,7 @@ MonoBehaviour:
   handelAnimUp: {fileID: 1932867162}
   handelAnimDown: {fileID: 1230656059}
   RotationNutAnim: {fileID: 3841020637327154601}
+  carStart: {fileID: 1626931337}
   lugNut1: {fileID: 2928802191617101438}
   lugNut2: {fileID: 2928802191873298937}
   lugNut3: {fileID: 2928802191417721391}
@@ -80050,6 +80148,7 @@ MonoBehaviour:
   nut3DropZoneTire: {fileID: 1145498835}
   nut4DropZoneTire: {fileID: 807565303}
   nut5DropZoneTire: {fileID: 1381367234}
+  addressableSceneName: Assets/Simulations/TireChangeCar/Scenes/TyreChangeSim.unity
 --- !u!4 &8953198897457526504
 Transform:
   m_ObjectHideFlags: 0

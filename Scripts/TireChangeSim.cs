@@ -7,6 +7,7 @@ using SVR.Workflow.TriangleFactory;
 using SVR.Workflow.TriangleFactory.Scripts.Mechanics;
 using SysmetisVR.V1.VRTK_extended;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 using VRTK;
 
@@ -47,6 +48,7 @@ public class TireChangeSim : CustomSim
     public GameObject handelAnimUp;
     public GameObject handelAnimDown;
     public Animator RotationNutAnim;
+    public AudioSource carStart;
 
     [Header("Lug nut variables And TabelTrigger")]
 
@@ -118,13 +120,29 @@ public class TireChangeSim : CustomSim
         carLifter4.SetBool("a", true);
 
     }
-    public void sceneload()
-    {
-        // Get the current scene index
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        // Reload the current scene
-        SceneManager.LoadScene(currentSceneIndex);
+    public void CarStartAnim()
+    {
+        carUpAnimation.SetBool("b", true);
+        carStart.Play();
+        
+    }
+
+    [SerializeField] private string addressableSceneName;
+    public void ResetScene()
+    {
+        // Check if the addressable scene name is not empty
+        if (string.IsNullOrEmpty(addressableSceneName))
+        {
+            Debug.LogWarning("Addressable scene name is not set in the inspector.");
+            return;
+        }
+
+        // Unload the current scene first (optional, if you want to free up resources)
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+
+        // Load the addressable scene by its addressable name
+        Addressables.LoadSceneAsync(addressableSceneName);
     }
 
     public void OnClickQuitButton()
